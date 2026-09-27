@@ -11,5 +11,9 @@ export default defineConfig({
   },
   build: {
     chunkSizeWarningLimit: 1600,
+    rollupOptions: {
+      input: { main: 'index.html', classic: 'classic.html' },
+    },
   },
+  worker: { format: 'es' },
 })

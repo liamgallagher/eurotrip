@@ -1,0 +1,3 @@
+html, body, #root { margin: 0; height: 100%; background: #0b1020; color: #f5f1e8; font-family: 'Inter Variable', system-ui, sans-serif; overflow: hidden; }
+.diorama { position: fixed; inset: 0; }
+.diorama__canvas { width: 100%; height: 100%; display: block; touch-action: none; }

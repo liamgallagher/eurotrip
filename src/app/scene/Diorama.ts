@@ -43,6 +43,8 @@ export interface Anchor {
   maxDist?: number
   /** hide when a mountain is in the way */
   occlude?: boolean
+  /** higher keeps its label when pins crowd together */
+  priority?: number
 }
 
 interface FlyAnim {
@@ -86,7 +88,7 @@ export class Diorama {
   private tiles!: TileSet
   ribbons!: Ribbons
   gates!: Gates
-  private anchors = new Map<string, Anchor & { h: number; hAt: number; vis: boolean }>()
+  private anchors = new Map<string, Anchor & { h: number; hAt: number; vis: boolean; sx?: number; sy?: number; w?: number; lh?: number; crowded?: boolean }>()
   private uniforms: Record<string, THREE.IUniform>
   private raf = 0
   private disposed = false
@@ -333,6 +335,12 @@ export class Diorama {
     this.poke()
   }
 
+  /** Best known ground height (m) at a place. */
+  heightAt(lon: number, lat: number): number {
+    const x = worldX(lon), z = worldZ(lat)
+    return this.tiles ? this.tiles.heightAt(x, z) : this.rasters ? this.rasters.heightAt(x, z) : 0
+  }
+
   // ——— anchors (HTML pins that follow the terrain)
   setAnchor(id: string, a: Anchor) {
     const prev = this.anchors.get(id)
@@ -373,8 +381,35 @@ export class Diorama {
       }
       if (vis) {
         const sx = (v.x * 0.5 + 0.5) * w, sy = (-v.y * 0.5 + 0.5) * h
+        a.sx = sx
+        a.sy = sy
         a.el.style.transform = `translate3d(${sx.toFixed(1)}px, ${sy.toFixed(1)}px, 0)`
-        a.el.style.zIndex = String(Math.round((1 - v.z) * 100000))
+        a.el.style.zIndex = String(Math.round((a.priority ?? 0) * 100000 + (1 - v.z) * 50000))
+      }
+    }
+    this.declutter(frame)
+  }
+
+  /** Hide labels (not pins) that would overlap a more important one. */
+  private declutter(frame: number) {
+    const list = [...this.anchors.values()].filter((a) => a.vis && a.sx != null)
+    list.sort((a, b) => (b.priority ?? 0) - (a.priority ?? 0))
+    const placed: [number, number, number, number][] = []
+    const hit = (r: [number, number, number, number]) => placed.some((p) => r[0] < p[2] && r[2] > p[0] && r[1] < p[3] && r[3] > p[1])
+    for (const a of list) {
+      if (a.w == null || frame % 60 === 0) {
+        const c = a.el.firstElementChild as HTMLElement | null
+        a.w = c?.offsetWidth ?? 40
+        a.lh = c?.offsetHeight ?? 20
+      }
+      const x = a.sx!, y = a.sy!
+      const full: [number, number, number, number] = [x - a.w / 2, y - a.lh!, x + a.w / 2, y]
+      const dot: [number, number, number, number] = [x - 12, y - 26, x + 12, y]
+      const crowded = hit(full)
+      placed.push(crowded ? dot : full)
+      if (crowded !== a.crowded) {
+        a.crowded = crowded
+        a.el.dataset.crowded = crowded ? '1' : '0'
       }
     }
   }
@@ -589,12 +624,15 @@ export class Diorama {
     const exagChanged = Math.abs(exag - this.lastExag) > 0.02
     if (exagChanged) this.lastExag = exag
     this.uniforms.uExag.value = exag
-    this.uniforms.uFogDensity.value = 1 / (dist * 4.5 + 140)
+    this.uniforms.uFogDensity.value = 1 / (dist * (dist > 600 ? 10 : 4.5) + 140)
     if (this.ribbons) {
       this.ribbons.uniforms.uRes.value.set(this.canvas.width / 2, this.canvas.height / 2)
       this.ribbons.uniforms.uLift.value = dist * 0.0012
     }
-    if (this.gates) this.gates.size.value = dist * 0.018
+    if (this.gates) {
+      this.gates.size.value = dist * 0.0055
+      this.gates.group.visible = dist < 900
+    }
     // tilt-shift only for the miniature overview
     this.tilt.blendMode.opacity.value = this.quality === 'low' ? 0 : clamp((dist - 300) / 1200, 0, 1) * 0.6
     this.tilt.offset = clamp(0.1 - (this.camera.position.y - this.controls.target.y) / dist * 0.05, -0.2, 0.2)

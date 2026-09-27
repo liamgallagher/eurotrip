@@ -1,45 +1,158 @@
-import { useEffect, useRef } from 'react'
-import { Diorama } from './scene/Diorama'
-import { buildPlan } from '../lib/plan'
-import { DEFAULT_STATE } from '../lib/state'
-import { loadLeg } from '../lib/runtime'
-import { localDate } from './scene/sun'
+import { lazy, Suspense, useEffect, useMemo, useState } from 'react'
+import { useShallow } from 'zustand/react/shallow'
+import { useApp } from './store'
+import { useDayStats, useLegSet, useLegs, usePlanner, useTripPlan, type LegReq } from './data'
+import { dayLegKey } from './engine/planner'
+import { Stage } from './ui/Stage'
+import { SceneSync } from './ui/SceneSync'
+import { Pins } from './ui/Pins'
+import { DayStrip, SunDial, TopBar } from './ui/Chrome'
+import { Options, useTripOptions } from './ui/Options'
+import { DayCard } from './ui/DayCard'
+import { Candidates } from './ui/Candidates'
+import { Discover } from './ui/Discover'
+import { DaysList, TripSheet } from './ui/TripSheet'
+import { Settings } from './ui/Settings'
+import { Icon, ICONS } from './ui/common'
+import { useJournal } from './journal'
 
-declare global {
-  interface Window { __dio?: Diorama }
+const Journal = lazy(() => import('./ui/Journal'))
+const Today = lazy(() => import('./ui/Today'))
+const Map2D = lazy(() => import('./ui/Map2D'))
+
+function useHash() {
+  const [h, setH] = useState(location.hash)
+  useEffect(() => {
+    const on = () => setH(location.hash)
+    addEventListener('hashchange', on)
+    return () => removeEventListener('hashchange', on)
+  }, [])
+  return h
 }
 
 export default function App() {
-  const ref = useRef<HTMLDivElement>(null)
+  const hash = useHash()
+  const pl = usePlanner()
+  const trip = useTripPlan(pl)
+  const { legs } = useLegs(trip)
+  const stats = useDayStats(trip, legs)
+  const ui = useApp(useShallow((s) => ({ panel: s.panel, view: s.view, toast: s.toast, ribbon: s.ribbon, day: s.day })))
+  const set = useApp((s) => s.ui)
+  const journal = useJournal()
+  const options = useTripOptions(pl, ui.panel === 'options')
+  const optionReqs = useMemo<LegReq[]>(() => {
+    if (!options) return []
+    const m = new Map<string, LegReq>()
+    for (const o of options) for (const e of [...o.out.days, ...o.ret.days]) {
+      const { key, waypoints } = dayLegKey(e)
+      m.set(key, { key, waypoints })
+    }
+    return [...m.values()]
+  }, [options])
+  const { legs: optionLegs } = useLegSet(ui.panel === 'options' ? optionReqs : [])
+
   useEffect(() => {
-    const d = new Diorama(ref.current!)
-    window.__dio = d
-    const q = new URLSearchParams(location.search)
-    const v = q.get('view')?.split(',').map(Number)
-    if (v) d.setView({ lon: v[0], lat: v[1], dist: v[2], tilt: v[3], heading: v[4] })
-    else d.setView({ lon: 7.2, lat: 48.2, dist: 2300, tilt: 38, heading: 0 })
-    const t = q.get('t')
-    d.ready.then(async () => {
-      d.setSun(localDate('2027-05-10', t ? Number(t) : 19 * 60 + 15), { lon: 10, lat: 47 })
-      const plan = buildPlan(DEFAULT_STATE)
-      const tracks = []
-      let off = 0
-      for (const day of plan.days) {
-        const pts: { lon: number; lat: number; ele: number; km: number }[] = []
-        for (const s of day.segments) {
-          if (s.kind !== 'drive') continue
-          const { leg } = await loadLeg(s.key, s.waypoints)
-          const base = pts.length ? pts[pts.length - 1].km : 0
-          for (const x of leg.samples) pts.push({ lon: x.lon, lat: x.lat, ele: x.ele, km: x.km + base })
-        }
-        if (pts.length < 2) continue
-        tracks.push({ id: `d${day.n}`, points: pts, color: day.dir === 'out' ? '#ffb45e' : '#5ee0ff', kmOffset: off, width: 4 })
-        off += pts[pts.length - 1].km
-      }
-      d.setTracks(tracks)
-      ;(document.body.dataset as DOMStringMap).ready = '1'
-    })
-    return () => d.dispose()
-  }, [])
-  return <div className="diorama" ref={ref} />
+    if (!ui.toast) return
+    const id = setTimeout(() => set({ toast: null }), 5200)
+    return () => clearTimeout(id)
+  }, [ui.toast, set])
+
+  useEffect(() => {
+    if (trip) document.body.dataset.ready = '1'
+  }, [trip])
+
+  // Esc closes the panel
+  useEffect(() => {
+    const on = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') set({ panel: null, cand: null, focusCand: null })
+    }
+    addEventListener('keydown', on)
+    return () => removeEventListener('keydown', on)
+  }, [set])
+
+  if (hash.startsWith('#today')) {
+    return (
+      <Suspense fallback={null}>
+        <Today pl={pl} trip={trip} stats={stats?.days ?? null} legs={legs} />
+      </Suspense>
+    )
+  }
+
+  const panel = (() => {
+    switch (ui.panel) {
+      case 'options':
+        return <Options options={options} />
+      case 'day':
+        return trip ? <DayCard pl={pl} trip={trip} stats={stats?.days ?? null} /> : null
+      case 'candidates':
+        return <Candidates pl={pl} />
+      case 'discover':
+        return <Discover trip={trip} />
+      case 'sheet':
+        return trip ? <TripSheet pl={pl} trip={trip} stats={stats} /> : null
+      case 'settings':
+        return <Settings pl={pl} />
+      case 'journal':
+        return trip ? (
+          <Suspense fallback={null}>
+            <Journal trip={trip} legs={legs} />
+          </Suspense>
+        ) : null
+      default:
+        return null
+    }
+  })()
+
+  return (
+    <div className={`app view-${ui.view} ${ui.panel ? 'has-panel' : ''} panel-${ui.panel ?? 'none'}`}>
+      {ui.view === '3d' && (
+        <Stage>
+          <SceneSync pl={pl} trip={trip} legs={legs} stats={stats?.days ?? null} options={options} optionLegs={optionLegs} driven={journal.driven} drivenVersion={journal.version} />
+          <Pins pl={pl} trip={trip} stats={stats?.days ?? null} />
+        </Stage>
+      )}
+      {ui.view === '2d' && (
+        <Suspense fallback={null}>
+          <Map2D trip={trip} legs={legs} />
+        </Suspense>
+      )}
+      {ui.view === 'list' && trip && (
+        <main className="listview">
+          <h1 className="listview__h">The trip, day by day</h1>
+          <DaysList pl={pl} trip={trip} stats={stats} />
+        </main>
+      )}
+      <TopBar trip={trip} totals={stats?.totals ?? null} />
+      {panel && (
+        <aside className="panel" aria-label="Details">
+          <button type="button" className="panel__close" onClick={() => set({ panel: null, cand: null, focusCand: null })} aria-label="Close panel">
+            <Icon d={ICONS.close} />
+          </button>
+          {panel}
+        </aside>
+      )}
+      {ui.view === '3d' && (
+        <div className="hud">
+          <SunDial trip={trip} />
+          <div className="seg seg--small ribbonmode" role="radiogroup" aria-label="Colour the route by">
+            {(['Route', 'Battery', 'Climb'] as const).map((l, i) => (
+              <button key={l} type="button" role="radio" aria-checked={ui.ribbon === i} className={ui.ribbon === i ? 'is-on' : ''} onClick={() => set({ ribbon: i as 0 | 1 | 2 })}>
+                {l}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+      {trip && <DayStrip trip={trip} />}
+      {!pl && <div className="loading">Loading Europe…</div>}
+      {ui.toast && (
+        <div className="toast" role="status">
+          {ui.toast}
+        </div>
+      )}
+      <p className="credits">
+        Imagery: Sentinel-2 cloudless 2020 by EOX (CC BY-NC-SA 4.0, Copernicus data) · Terrain: Mapzen/AWS Terrain Tiles · Night lights: NASA VIIRS · Roads: OSRM/OpenStreetMap
+      </p>
+    </div>
+  )
 }

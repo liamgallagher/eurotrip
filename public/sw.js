@@ -1,11 +1,11 @@
 // Offline support for the trip: the app shell is network-first (so new deploys win), while route data,
 // photos and fonts are cached on first use and served from cache when there is no signal.
-const VERSION = 'v1'
+const VERSION = 'v2'
 const SHELL = `shell-${VERSION}`
 const DATA = `data-${VERSION}`
 
 self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(SHELL).then((c) => c.addAll(['./', './index.html'])).then(() => self.skipWaiting()))
+  e.waitUntil(caches.open(SHELL).then((c) => c.addAll(['./', './index.html', './classic.html'])).then(() => self.skipWaiting()))
 })
 self.addEventListener('activate', (e) => {
   e.waitUntil(

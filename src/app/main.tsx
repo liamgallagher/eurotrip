@@ -4,6 +4,10 @@ import '@fontsource-variable/fraunces'
 import '@fontsource-variable/inter'
 import './app.css'
 import App from './App'
+import { useApp } from './store'
+
+// handy for debugging and the screenshot scripts
+;(window as unknown as { __app: typeof useApp }).__app = useApp
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

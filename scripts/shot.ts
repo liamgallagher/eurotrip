@@ -24,6 +24,10 @@ await ctx.route(/^https:\/\//, async (route) => {
     await route.fulfill({ status: r.status, body, headers: { 'content-type': ct, 'access-control-allow-origin': '*' } })
   } catch { await route.abort() }
 })
+if (process.env.PLAN) {
+  const plan = readFileSync(process.env.PLAN, 'utf8')
+  await ctx.addInitScript((p) => { if (!sessionStorage.getItem('seeded')) { localStorage.setItem('eurotrip:v2', p); sessionStorage.setItem('seeded', '1') } }, plan)
+}
 const page = await ctx.newPage()
 page.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') console.log('console:', m.text().slice(0, 300)) })
 page.on('pageerror', (e) => console.log('pageerror:', e.message))
@@ -42,6 +46,21 @@ while (Date.now() - t0 < 150000 && calm < 3) {
   await page.waitForTimeout(2500)
 }
 await page.waitForTimeout(1500)
+for (const step of (process.env.STEPS ?? '').split(';').filter(Boolean)) {
+  const kind = step.slice(0, step.indexOf('=')), arg = step.slice(step.indexOf('=') + 1)
+  if (kind === 'click') await page.click(arg)
+  if (kind === 'wait') await page.waitForTimeout(Number(arg))
+  if (kind === 'eval') await page.evaluate(arg)
+}
+if (process.env.STEPS) {
+  let calm2 = 0
+  const t1 = Date.now()
+  while (Date.now() - t1 < 120000 && calm2 < 3) {
+    const busy = await page.evaluate(() => (window as unknown as { __dio?: { busy: boolean } }).__dio?.busy)
+    calm2 = busy ? 0 : calm2 + 1
+    await page.waitForTimeout(2500)
+  }
+}
 await page.screenshot({ path: out })
 console.log(JSON.stringify(await page.evaluate(() => (window as unknown as { __dio?: { debug: unknown } }).__dio?.debug)))
 console.log('saved', out)

@@ -24,7 +24,8 @@
     "data:photos:download": "tsx scripts/download-photos.ts",
     "data:pexels": "tsx scripts/fetch-pexels.ts",
     "data:matrix": "tsx scripts/build-matrix.ts",
-    "data:terrain": "tsx scripts/build-terrain.ts"
+    "data:terrain": "tsx scripts/build-terrain.ts",
+    "data:curated": "tsx scripts/build-curated.ts"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "^5.3.0",

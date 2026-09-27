@@ -1,0 +1,1655 @@
+{
+ "fetchedAt": "2026-09-27T19:49:07.423Z",
+ "photos": {
+  "ljubljana": {
+   "file": "Río_Ljubljanica,_Liubliana,_Eslovenia,_2017-04-14,_DD_08_(cropped).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/R%C3%ADo_Ljubljanica%2C_Liubliana%2C_Eslovenia%2C_2017-04-14%2C_DD_08_%28cropped%29.jpg/960px-R%C3%ADo_Ljubljanica%2C_Liubliana%2C_Eslovenia%2C_2017-04-14%2C_DD_08_%28cropped%29.jpg",
+   "w": 960,
+   "h": 421,
+   "page": "https://commons.wikimedia.org/wiki/File:R%C3%ADo_Ljubljanica,_Liubliana,_Eslovenia,_2017-04-14,_DD_08_(cropped).jpg",
+   "author": "Diego Delso",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "bled": {
+   "file": "Lake_Bled_from_the_Mountain.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Lake_Bled_from_the_Mountain.jpg/960px-Lake_Bled_from_the_Mountain.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Lake_Bled_from_the_Mountain.jpg",
+   "author": "Canadianhockey91",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "bohinj": {
+   "file": "Aerial_image_of_Lake_Bohinj_(view_from_the_south).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Aerial_image_of_Lake_Bohinj_%28view_from_the_south%29.jpg/960px-Aerial_image_of_Lake_Bohinj_%28view_from_the_south%29.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_Lake_Bohinj_(view_from_the_south).jpg",
+   "author": "Carsten Steger",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "vintgar": {
+   "file": "Slovenia_-_Waterfall_Sum_-_Vintgar_Klamm_(43686688490).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Slovenia_-_Waterfall_Sum_-_Vintgar_Klamm_%2843686688490%29.jpg/960px-Slovenia_-_Waterfall_Sum_-_Vintgar_Klamm_%2843686688490%29.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:Slovenia_-_Waterfall_Sum_-_Vintgar_Klamm_(43686688490).jpg",
+   "author": "Akulatraxas from Hannover, Germany",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  "postojna": {
+   "file": "Postojna_(22206343750).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Postojna_%2822206343750%29.jpg/960px-Postojna_%2822206343750%29.jpg",
+   "w": 960,
+   "h": 540,
+   "page": "https://commons.wikimedia.org/wiki/File:Postojna_(22206343750).jpg",
+   "author": "Ivan Ivankovic from Dubrovnik, Croatia",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  "predjama": {
+   "file": "Höhlenburg_Predjama_in_Slovenien.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/H%C3%B6hlenburg_Predjama_in_Slovenien.jpg/960px-H%C3%B6hlenburg_Predjama_in_Slovenien.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:H%C3%B6hlenburg_Predjama_in_Slovenien.jpg",
+   "author": "Lettkemann",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "piran": {
+   "file": "Piran,_Slovenia,_Viewpoint.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Piran%2C_Slovenia%2C_Viewpoint.jpg/960px-Piran%2C_Slovenia%2C_Viewpoint.jpg",
+   "w": 960,
+   "h": 636,
+   "page": "https://commons.wikimedia.org/wiki/File:Piran,_Slovenia,_Viewpoint.jpg",
+   "author": "Etienne O. Dallaire",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
+  },
+  "velika-planina": {
+   "file": "Velika_Planina.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Velika_Planina.jpg/960px-Velika_Planina.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Velika_Planina.jpg",
+   "author": "MPhernambucq",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "maastricht": {
+   "file": "Maastricht_sunset.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Maastricht_sunset.jpg/960px-Maastricht_sunset.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:Maastricht_sunset.jpg",
+   "author": "Bert Kaufmann",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  "aachen-cathedral": {
+   "file": "Aachen_Germany_Imperial-Cathedral-01.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Aachen_Germany_Imperial-Cathedral-01.jpg/960px-Aachen_Germany_Imperial-Cathedral-01.jpg",
+   "w": 960,
+   "h": 686,
+   "page": "https://commons.wikimedia.org/wiki/File:Aachen_Germany_Imperial-Cathedral-01.jpg",
+   "author": "CEphoto, Uwe Aranas",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "cologne-cathedral": {
+   "file": "Kölner_Dom_-_Westfassade_2022_ohne_Gerüst-0968_b.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968_b.jpg/960px-K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968_b.jpg",
+   "w": 960,
+   "h": 1558,
+   "page": "https://commons.wikimedia.org/wiki/File:K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968_b.jpg",
+   "author": "Raimond Spekking",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "moselle-valley": {
+   "file": "Schweicher_Annaberg.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Schweicher_Annaberg.jpg/960px-Schweicher_Annaberg.jpg",
+   "w": 960,
+   "h": 951,
+   "page": "https://commons.wikimedia.org/wiki/File:Schweicher_Annaberg.jpg",
+   "author": "Areks",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "burg-eltz": {
+   "file": "Le_château_d'Eltz_(Burg_Eltz)_en_allemagne_(cropped).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Le_ch%C3%A2teau_d%27Eltz_%28Burg_Eltz%29_en_allemagne_%28cropped%29.jpg/960px-Le_ch%C3%A2teau_d%27Eltz_%28Burg_Eltz%29_en_allemagne_%28cropped%29.jpg",
+   "w": 960,
+   "h": 1349,
+   "page": "https://commons.wikimedia.org/wiki/File:Le_ch%C3%A2teau_d%27Eltz_(Burg_Eltz)_en_allemagne_(cropped).jpg",
+   "author": "Clementp.fr",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "heidelberg-castle": {
+   "file": "Heidelberg-2726936.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Heidelberg-2726936.jpg/960px-Heidelberg-2726936.jpg",
+   "w": 960,
+   "h": 546,
+   "page": "https://commons.wikimedia.org/wiki/File:Heidelberg-2726936.jpg",
+   "author": "Motatcho",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "neckar-castle-road": {
+   "file": "Burgenstrasse.png",
+   "src": "https://upload.wikimedia.org/wikipedia/commons/3/37/Burgenstrasse.png",
+   "w": 960,
+   "h": 1200,
+   "page": "https://commons.wikimedia.org/wiki/File:Burgenstrasse.png",
+   "author": "汲平",
+   "license": "Public domain",
+   "licenseUrl": null
+  },
+  "rothenburg": {
+   "file": "Rothenburg_BW_4.JPG",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Rothenburg_BW_4.JPG/960px-Rothenburg_BW_4.JPG",
+   "w": 960,
+   "h": 643,
+   "page": "https://commons.wikimedia.org/wiki/File:Rothenburg_BW_4.JPG",
+   "author": "Berthold Werner",
+   "license": "Public domain",
+   "licenseUrl": null
+  },
+  "dinkelsbuhl": {
+   "file": "Dinkelsbuehl_Kirchturm_West.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Dinkelsbuehl_Kirchturm_West.jpg/960px-Dinkelsbuehl_Kirchturm_West.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:Dinkelsbuehl_Kirchturm_West.jpg",
+   "author": "Mylius",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "romantic-road": {
+   "file": "Karte_Romantische_Straße_2016.png",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Karte_Romantische_Stra%C3%9Fe_2016.png/960px-Karte_Romantische_Stra%C3%9Fe_2016.png",
+   "w": 960,
+   "h": 1316,
+   "page": "https://commons.wikimedia.org/wiki/File:Karte_Romantische_Stra%C3%9Fe_2016.png",
+   "author": "NordNordWest",
+   "license": "CC BY-SA 3.0 de",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en"
+  },
+  "nordlingen": {
+   "file": "NördlingenDanielBlickSüden.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/N%C3%B6rdlingenDanielBlickS%C3%BCden.jpg/960px-N%C3%B6rdlingenDanielBlickS%C3%BCden.jpg",
+   "w": 960,
+   "h": 1270,
+   "page": "https://commons.wikimedia.org/wiki/File:N%C3%B6rdlingenDanielBlickS%C3%BCden.jpg",
+   "author": "Mussklprozz",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "wieskirche": {
+   "file": "Wieskirche_003.JPG",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Wieskirche_003.JPG/960px-Wieskirche_003.JPG",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Wieskirche_003.JPG",
+   "author": "Mattana",
+   "license": "Public domain",
+   "licenseUrl": null
+  },
+  "neuschwanstein": {
+   "file": "Schloss_Neuschwanstein_2013.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Schloss_Neuschwanstein_2013.jpg/960px-Schloss_Neuschwanstein_2013.jpg",
+   "w": 960,
+   "h": 717,
+   "page": "https://commons.wikimedia.org/wiki/File:Schloss_Neuschwanstein_2013.jpg",
+   "author": "Thomas Wolf, www.foto-tw.de",
+   "license": "CC BY-SA 3.0 de",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en"
+  },
+  "munich": {
+   "file": "Stadtbild_München.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/960px-Stadtbild_M%C3%BCnchen.jpg",
+   "w": 960,
+   "h": 649,
+   "page": "https://commons.wikimedia.org/wiki/File:Stadtbild_M%C3%BCnchen.jpg",
+   "author": "Thomas Wolf, www.foto-tw.de",
+   "license": "CC BY-SA 3.0 de",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en"
+  },
+  "partnachklamm": {
+   "file": "Partnachklamm.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Partnachklamm.jpg/960px-Partnachklamm.jpg",
+   "w": 960,
+   "h": 576,
+   "page": "https://commons.wikimedia.org/wiki/File:Partnachklamm.jpg",
+   "author": "Richard Bartz, Munich Makro Freak",
+   "license": "CC BY-SA 2.5",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5"
+  },
+  "linderhof": {
+   "file": "Linderhof-1.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Linderhof-1.jpg/960px-Linderhof-1.jpg",
+   "w": 960,
+   "h": 597,
+   "page": "https://commons.wikimedia.org/wiki/File:Linderhof-1.jpg",
+   "author": "Softeis",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "walchensee": {
+   "file": "Aerial_image_of_the_Walchensee_(view_from_the_southwest).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Aerial_image_of_the_Walchensee_%28view_from_the_southwest%29.jpg/960px-Aerial_image_of_the_Walchensee_%28view_from_the_southwest%29.jpg",
+   "w": 960,
+   "h": 634,
+   "page": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_the_Walchensee_(view_from_the_southwest).jpg",
+   "author": "Carsten Steger",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "tegernsee": {
+   "file": "Tegernsee_in_MB.svg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Tegernsee_in_MB.svg/960px-Tegernsee_in_MB.svg.png",
+   "w": 960,
+   "h": 1044,
+   "page": "https://commons.wikimedia.org/wiki/File:Tegernsee_in_MB.svg",
+   "author": "Hagar66 based on work of TUBS",
+   "license": "Public domain",
+   "licenseUrl": null
+  },
+  "gerlos-krimml": {
+   "file": "Austrian.waterfall.at.krimml.arp.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Austrian.waterfall.at.krimml.arp.jpg/960px-Austrian.waterfall.at.krimml.arp.jpg",
+   "w": 960,
+   "h": 631,
+   "page": "https://commons.wikimedia.org/wiki/File:Austrian.waterfall.at.krimml.arp.jpg",
+   "author": "Unknown",
+   "license": "Public domain",
+   "licenseUrl": null
+  },
+  "zell-am-see-lake": {
+   "file": "Zell_am_See.Wiki.jpeg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Zell_am_See.Wiki.jpeg/960px-Zell_am_See.Wiki.jpeg",
+   "w": 960,
+   "h": 621,
+   "page": "https://commons.wikimedia.org/wiki/File:Zell_am_See.Wiki.jpeg",
+   "author": "Bestzeller",
+   "license": "Public domain",
+   "licenseUrl": null
+  },
+  "kitzbuhel": {
+   "file": "Kitzbuehel03.JPG",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Kitzbuehel03.JPG/960px-Kitzbuehel03.JPG",
+   "w": 960,
+   "h": 1355,
+   "page": "https://commons.wikimedia.org/wiki/File:Kitzbuehel03.JPG",
+   "author": "Wolfgang Glock",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0"
+  },
+  "grossglockner": {
+   "file": "Grossglockner_road.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Grossglockner_road.jpg/960px-Grossglockner_road.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Grossglockner_road.jpg",
+   "author": "Sander Hoogendoorn from Gouda, Holland",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  "kaiser-franz-josefs-hohe": {
+   "file": "A_dying_glacier_14776638880_o.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/A_dying_glacier_14776638880_o.jpg/960px-A_dying_glacier_14776638880_o.jpg",
+   "w": 960,
+   "h": 641,
+   "page": "https://commons.wikimedia.org/wiki/File:A_dying_glacier_14776638880_o.jpg",
+   "author": "Bernd Thaller",
+   "license": "CC BY-SA 3.0 at",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/at/deed.en"
+  },
+  "wurzen-pass": {
+   "file": "3284KorenskoSedloSloveniaBorderPost.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/3284KorenskoSedloSloveniaBorderPost.jpg/960px-3284KorenskoSedloSloveniaBorderPost.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:3284KorenskoSedloSloveniaBorderPost.jpg",
+   "author": "David Edgar",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "lake-jasna": {
+   "file": "Kranjska_Gora-2736048.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Kranjska_Gora-2736048.jpg/960px-Kranjska_Gora-2736048.jpg",
+   "w": 960,
+   "h": 539,
+   "page": "https://commons.wikimedia.org/wiki/File:Kranjska_Gora-2736048.jpg",
+   "author": "benj500",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "reims-cathedral": {
+   "file": "Exterior_view_of_the_west_facade_of_Notre-Dame_Cathedral_in_Reims.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Exterior_view_of_the_west_facade_of_Notre-Dame_Cathedral_in_Reims.jpg/960px-Exterior_view_of_the_west_facade_of_Notre-Dame_Cathedral_in_Reims.jpg",
+   "w": 960,
+   "h": 1493,
+   "page": "https://commons.wikimedia.org/wiki/File:Exterior_view_of_the_west_facade_of_Notre-Dame_Cathedral_in_Reims.jpg",
+   "author": "Gennadii Saus i Segura",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "champagne-cellars": {
+   "file": "Avenue_de_Champagne,_Épernay_(8132669246).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Avenue_de_Champagne%2C_%C3%89pernay_%288132669246%29.jpg/960px-Avenue_de_Champagne%2C_%C3%89pernay_%288132669246%29.jpg",
+   "w": 960,
+   "h": 638,
+   "page": "https://commons.wikimedia.org/wiki/File:Avenue_de_Champagne,_%C3%89pernay_(8132669246).jpg",
+   "author": "Michal Osmenda from Brussels, Belgium",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  "avenue-de-champagne": {
+   "file": "Avenue_de_Champagne,_Épernay_(8132669246).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Avenue_de_Champagne%2C_%C3%89pernay_%288132669246%29.jpg/960px-Avenue_de_Champagne%2C_%C3%89pernay_%288132669246%29.jpg",
+   "w": 960,
+   "h": 638,
+   "page": "https://commons.wikimedia.org/wiki/File:Avenue_de_Champagne,_%C3%89pernay_(8132669246).jpg",
+   "author": "Michal Osmenda from Brussels, Belgium",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  "montagne-de-reims": {
+   "file": "Town_Hall_Hautvillers.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Town_Hall_Hautvillers.jpg/960px-Town_Hall_Hautvillers.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Town_Hall_Hautvillers.jpg",
+   "author": "Jrgoodrich",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "route-des-cretes": {
+   "file": "Rothenbachkopf_nord.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Rothenbachkopf_nord.jpg/960px-Rothenbachkopf_nord.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Rothenbachkopf_nord.jpg",
+   "author": "Florian Grossir",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "colmar": {
+   "file": "View_of_Église_Saint-Martin_(43833049001).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/View_of_%C3%89glise_Saint-Martin_%2843833049001%29.jpg/960px-View_of_%C3%89glise_Saint-Martin_%2843833049001%29.jpg",
+   "w": 960,
+   "h": 688,
+   "page": "https://commons.wikimedia.org/wiki/File:View_of_%C3%89glise_Saint-Martin_(43833049001).jpg",
+   "author": "--sinava-- from Berlin",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  "riquewihr": {
+   "file": "0_Riquewihr_(1).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/0_Riquewihr_%281%29.jpg/960px-0_Riquewihr_%281%29.jpg",
+   "w": 960,
+   "h": 652,
+   "page": "https://commons.wikimedia.org/wiki/File:0_Riquewihr_(1).jpg",
+   "author": "Jean-Pol GRANDMONT",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
+  },
+  "strasbourg": {
+   "file": "Strasbourg_Cathedral.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Strasbourg_Cathedral.jpg/960px-Strasbourg_Cathedral.jpg",
+   "w": 960,
+   "h": 726,
+   "page": "https://commons.wikimedia.org/wiki/File:Strasbourg_Cathedral.jpg",
+   "author": "Jonathan Martz",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "haut-koenigsbourg": {
+   "file": "Château_du_Haut-Koenigsbourg_(755_m)_(Orschwiller)_(19)_edited_(1).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Ch%C3%A2teau_du_Haut-Koenigsbourg_%28755_m%29_%28Orschwiller%29_%2819%29_edited_%281%29.jpg/960px-Ch%C3%A2teau_du_Haut-Koenigsbourg_%28755_m%29_%28Orschwiller%29_%2819%29_edited_%281%29.jpg",
+   "w": 960,
+   "h": 1333,
+   "page": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_du_Haut-Koenigsbourg_(755_m)_(Orschwiller)_(19)_edited_(1).jpg",
+   "author": "Gzen92",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "lucerne": {
+   "file": "Kapellbruecke.JPG",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Kapellbruecke.JPG/960px-Kapellbruecke.JPG",
+   "w": 960,
+   "h": 638,
+   "page": "https://commons.wikimedia.org/wiki/File:Kapellbruecke.JPG",
+   "author": "Simon Koopmann",
+   "license": "CC BY-SA 2.5",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5"
+  },
+  "zurich": {
+   "file": "Altstadt_Zürich_2015.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Altstadt_Z%C3%BCrich_2015.jpg/960px-Altstadt_Z%C3%BCrich_2015.jpg",
+   "w": 960,
+   "h": 524,
+   "page": "https://commons.wikimedia.org/wiki/File:Altstadt_Z%C3%BCrich_2015.jpg",
+   "author": "Thomas Wolf, www.foto-tw.de",
+   "license": "CC BY-SA 3.0 de",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en"
+  },
+  "rhine-falls": {
+   "file": "SBB_RABe_514_DTZ_Rheinfall.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/SBB_RABe_514_DTZ_Rheinfall.jpg/960px-SBB_RABe_514_DTZ_Rheinfall.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:SBB_RABe_514_DTZ_Rheinfall.jpg",
+   "author": "Kabelleger / David Gubler",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "walensee": {
+   "file": "Aerial_image_of_the_Walensee.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Aerial_image_of_the_Walensee.jpg/960px-Aerial_image_of_the_Walensee.jpg",
+   "w": 960,
+   "h": 647,
+   "page": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_the_Walensee.jpg",
+   "author": "Carsten Steger",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "julier-pass": {
+   "file": "Julier_Pass_as_seen_from_Piz_Polaschin.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Julier_Pass_as_seen_from_Piz_Polaschin.jpg/960px-Julier_Pass_as_seen_from_Piz_Polaschin.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Julier_Pass_as_seen_from_Piz_Polaschin.jpg",
+   "author": "Edith Schmid (uploader Capricorn4049)",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "engadin-lakes": {
+   "file": "Engadine.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Engadine.jpg/960px-Engadine.jpg",
+   "w": 960,
+   "h": 664,
+   "page": "https://commons.wikimedia.org/wiki/File:Engadine.jpg",
+   "author": "Biovit",
+   "license": "Public domain",
+   "licenseUrl": null
+  },
+  "bernina-pass": {
+   "file": "CH_bernina_pass1.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/CH_bernina_pass1.jpg/960px-CH_bernina_pass1.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:CH_bernina_pass1.jpg",
+   "author": "Daniel Schwen",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "brusio-viaduct": {
+   "file": "RhB_ABe_4-4_III_Kreisviadukt_Brusio.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/RhB_ABe_4-4_III_Kreisviadukt_Brusio.jpg/960px-RhB_ABe_4-4_III_Kreisviadukt_Brusio.jpg",
+   "w": 960,
+   "h": 593,
+   "page": "https://commons.wikimedia.org/wiki/File:RhB_ABe_4-4_III_Kreisviadukt_Brusio.jpg",
+   "author": "Kabelleger / David Gubler (http://www.bahnbilder.ch)",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0"
+  },
+  "lake-como": {
+   "file": "Sentiero_del_Viandante_DSC_6340_(14020554463).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Sentiero_del_Viandante_DSC_6340_%2814020554463%29.jpg/960px-Sentiero_del_Viandante_DSC_6340_%2814020554463%29.jpg",
+   "w": 960,
+   "h": 600,
+   "page": "https://commons.wikimedia.org/wiki/File:Sentiero_del_Viandante_DSC_6340_(14020554463).jpg",
+   "author": "Luca Casartelli",
+   "license": "CC BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  "varenna": {
+   "file": "Varenna_20260811.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Varenna_20260811.jpg/960px-Varenna_20260811.jpg",
+   "w": 960,
+   "h": 636,
+   "page": "https://commons.wikimedia.org/wiki/File:Varenna_20260811.jpg",
+   "author": "DD991",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "bellagio": {
+   "file": "Sentiero_del_Viandante_DSC_6340_(14020554463).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Sentiero_del_Viandante_DSC_6340_%2814020554463%29.jpg/960px-Sentiero_del_Viandante_DSC_6340_%2814020554463%29.jpg",
+   "w": 960,
+   "h": 600,
+   "page": "https://commons.wikimedia.org/wiki/File:Sentiero_del_Viandante_DSC_6340_(14020554463).jpg",
+   "author": "Luca Casartelli",
+   "license": "CC BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  "como": {
+   "file": "Como_and_its_lake.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Como_and_its_lake.jpg/960px-Como_and_its_lake.jpg",
+   "w": 960,
+   "h": 540,
+   "page": "https://commons.wikimedia.org/wiki/File:Como_and_its_lake.jpg",
+   "author": "Pxhere",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "milan": {
+   "file": "Milan_Cathedral_from_Piazza_del_Duomo.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Milan_Cathedral_from_Piazza_del_Duomo.jpg/960px-Milan_Cathedral_from_Piazza_del_Duomo.jpg",
+   "w": 960,
+   "h": 721,
+   "page": "https://commons.wikimedia.org/wiki/File:Milan_Cathedral_from_Piazza_del_Duomo.jpg",
+   "author": "Jiuguang Wang",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "sirmione": {
+   "file": "Italy_-_Sirmione.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Italy_-_Sirmione.jpg/960px-Italy_-_Sirmione.jpg",
+   "w": 960,
+   "h": 719,
+   "page": "https://commons.wikimedia.org/wiki/File:Italy_-_Sirmione.jpg",
+   "author": "Arne Müseler",
+   "license": "CC BY-SA 3.0 de",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en"
+  },
+  "venice": {
+   "file": "Venezia_aerial_view.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Venezia_aerial_view.jpg/960px-Venezia_aerial_view.jpg",
+   "w": 960,
+   "h": 537,
+   "page": "https://commons.wikimedia.org/wiki/File:Venezia_aerial_view.jpg",
+   "author": "kallerna",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "verona": {
+   "file": "Verona_cityscape_sunny.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Verona_cityscape_sunny.jpg/960px-Verona_cityscape_sunny.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Verona_cityscape_sunny.jpg",
+   "author": "Hoppend",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "padua": {
+   "file": "Padova_Cappella_degli_Scrovegni_Innen_Langhaus_West_5.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Padova_Cappella_degli_Scrovegni_Innen_Langhaus_West_5.jpg/960px-Padova_Cappella_degli_Scrovegni_Innen_Langhaus_West_5.jpg",
+   "w": 960,
+   "h": 742,
+   "page": "https://commons.wikimedia.org/wiki/File:Padova_Cappella_degli_Scrovegni_Innen_Langhaus_West_5.jpg",
+   "author": "Zairon",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "treviso": {
+   "file": "Treviso_views.jpg",
+   "src": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Treviso_views.jpg",
+   "w": 960,
+   "h": 1192,
+   "page": "https://commons.wikimedia.org/wiki/File:Treviso_views.jpg",
+   "author": "MaiDireLollo",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "aquileia": {
+   "file": "Basilica_Patriarcale_(Aquileia)_-_Exterior.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Basilica_Patriarcale_%28Aquileia%29_-_Exterior.jpg/960px-Basilica_Patriarcale_%28Aquileia%29_-_Exterior.jpg",
+   "w": 960,
+   "h": 832,
+   "page": "https://commons.wikimedia.org/wiki/File:Basilica_Patriarcale_(Aquileia)_-_Exterior.jpg",
+   "author": "ThePhotografer",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "miramare": {
+   "file": "Trieste_-_castello_di_Miramare_-_202209132345.jpeg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Trieste_-_castello_di_Miramare_-_202209132345.jpeg/960px-Trieste_-_castello_di_Miramare_-_202209132345.jpeg",
+   "w": 960,
+   "h": 552,
+   "page": "https://commons.wikimedia.org/wiki/File:Trieste_-_castello_di_Miramare_-_202209132345.jpeg",
+   "author": "Gmarell",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "trieste": {
+   "file": "Trieste_(28766391880).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Trieste_%2828766391880%29.jpg/960px-Trieste_%2828766391880%29.jpg",
+   "w": 960,
+   "h": 641,
+   "page": "https://commons.wikimedia.org/wiki/File:Trieste_(28766391880).jpg",
+   "author": "Nick Savchenko from Kiev, Ukraine",
+   "license": "CC BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  "skocjan": {
+   "file": "SkocjanskeJame_2013jpg.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/SkocjanskeJame_2013jpg.jpg/960px-SkocjanskeJame_2013jpg.jpg",
+   "w": 960,
+   "h": 511,
+   "page": "https://commons.wikimedia.org/wiki/File:SkocjanskeJame_2013jpg.jpg",
+   "author": "Lander at Slovenian Wikipedia",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "menin-gate": {
+   "file": "Ieper_Menenpoort_R05.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Ieper_Menenpoort_R05.jpg/960px-Ieper_Menenpoort_R05.jpg",
+   "w": 960,
+   "h": 615,
+   "page": "https://commons.wikimedia.org/wiki/File:Ieper_Menenpoort_R05.jpg",
+   "author": "Marc Ryckaert",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "lille": {
+   "file": "Lille_Collage.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Lille_Collage.jpg/960px-Lille_Collage.jpg",
+   "w": 960,
+   "h": 1287,
+   "page": "https://commons.wikimedia.org/wiki/File:Lille_Collage.jpg",
+   "author": "Cereol89, Velvet",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "verdun": {
+   "file": "Beinhaus_von_Douaumont_-_Ossuaire_de_Douaumont.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Beinhaus_von_Douaumont_-_Ossuaire_de_Douaumont.jpg/960px-Beinhaus_von_Douaumont_-_Ossuaire_de_Douaumont.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Beinhaus_von_Douaumont_-_Ossuaire_de_Douaumont.jpg",
+   "author": "Lukas Lober",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "baden-baden": {
+   "file": "Baden-Baden_10-2015_img05_View_from_Merkur.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Baden-Baden_10-2015_img05_View_from_Merkur.jpg/960px-Baden-Baden_10-2015_img05_View_from_Merkur.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:Baden-Baden_10-2015_img05_View_from_Merkur.jpg",
+   "author": "A.Savin",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "schwarzwaldhochstrasse": {
+   "file": "Schwarzwaldhochstrasse_Mummelsee.JPG",
+   "src": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Schwarzwaldhochstrasse_Mummelsee.JPG",
+   "w": 960,
+   "h": 1433,
+   "page": "https://commons.wikimedia.org/wiki/File:Schwarzwaldhochstrasse_Mummelsee.JPG",
+   "author": "Rainer Lück http://1RL.de",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "mummelsee": {
+   "file": "Mummelsee01.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Mummelsee01.jpg/960px-Mummelsee01.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:Mummelsee01.jpg",
+   "author": "Norbert Hüttisch, Karlsruhe",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "triberg-falls": {
+   "file": "Triberg_waterfall.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Triberg_waterfall.jpg/960px-Triberg_waterfall.jpg",
+   "w": 960,
+   "h": 1280,
+   "page": "https://commons.wikimedia.org/wiki/File:Triberg_waterfall.jpg",
+   "author": "MargaritaGagina",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "freiburg": {
+   "file": "Freiburg_im_Breisgau_Münster.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Freiburg_im_Breisgau_M%C3%BCnster.jpg/960px-Freiburg_im_Breisgau_M%C3%BCnster.jpg",
+   "w": 960,
+   "h": 837,
+   "page": "https://commons.wikimedia.org/wiki/File:Freiburg_im_Breisgau_M%C3%BCnster.jpg",
+   "author": "C. M.",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "titisee": {
+   "file": "Titisee-blick_von_hochfirst.jpg",
+   "src": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Titisee-blick_von_hochfirst.jpg",
+   "w": 960,
+   "h": 637,
+   "page": "https://commons.wikimedia.org/wiki/File:Titisee-blick_von_hochfirst.jpg",
+   "author": "User Christian.maier on de.wikipedia",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "lindau": {
+   "file": "Lindau_Insel_Luftbild3.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Lindau_Insel_Luftbild3.jpg/960px-Lindau_Insel_Luftbild3.jpg",
+   "w": 960,
+   "h": 649,
+   "page": "https://commons.wikimedia.org/wiki/File:Lindau_Insel_Luftbild3.jpg",
+   "author": "Edda Praefcke",
+   "license": "CC BY 2.5",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.5"
+  },
+  "arlberg-pass": {
+   "file": "Arlberg_passstrasse.jpg",
+   "src": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Arlberg_passstrasse.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Arlberg_passstrasse.jpg",
+   "author": "Unknown",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "innsbruck": {
+   "file": "Bürgerstraße_26+24_(BT0A2830).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/B%C3%BCrgerstra%C3%9Fe_26%2B24_%28BT0A2830%29.jpg/960px-B%C3%BCrgerstra%C3%9Fe_26%2B24_%28BT0A2830%29.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:B%C3%BCrgerstra%C3%9Fe_26%2B24_(BT0A2830).jpg",
+   "author": "Simon Legner (User:simon04)",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "st-anton": {
+   "file": "St_anton_skiroute_3_galzigbahn_v2.png",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/St_anton_skiroute_3_galzigbahn_v2.png/960px-St_anton_skiroute_3_galzigbahn_v2.png",
+   "w": 960,
+   "h": 556,
+   "page": "https://commons.wikimedia.org/wiki/File:St_anton_skiroute_3_galzigbahn_v2.png",
+   "author": "24seven",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "hall-in-tirol": {
+   "file": "AUT_Hall_in_Tirol,_Burg_Hasegg_004.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/AUT_Hall_in_Tirol%2C_Burg_Hasegg_004.jpg/960px-AUT_Hall_in_Tirol%2C_Burg_Hasegg_004.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:AUT_Hall_in_Tirol,_Burg_Hasegg_004.jpg",
+   "author": "-wuppertaler",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "val-gardena": {
+   "file": "Val_Gardena.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Val_Gardena.jpg/960px-Val_Gardena.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:Val_Gardena.jpg",
+   "author": "Dmitry A. Mottl",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "sella-pass": {
+   "file": "Langkofel_group_from_Sellajoch_Col_Rodella_Fassa.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Langkofel_group_from_Sellajoch_Col_Rodella_Fassa.jpg/960px-Langkofel_group_from_Sellajoch_Col_Rodella_Fassa.jpg",
+   "w": 960,
+   "h": 862,
+   "page": "https://commons.wikimedia.org/wiki/File:Langkofel_group_from_Sellajoch_Col_Rodella_Fassa.jpg",
+   "author": "This Photo was taken by Wolfgang Moroder. Feel free to use my photos, but please",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "pordoi-pass": {
+   "file": "Passo_pordoi.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Passo_pordoi.jpg/960px-Passo_pordoi.jpg",
+   "w": 960,
+   "h": 579,
+   "page": "https://commons.wikimedia.org/wiki/File:Passo_pordoi.jpg",
+   "author": "No machine-readable author provided. Egil assumed (based on copyright claims).",
+   "license": "CC BY 2.5",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.5"
+  },
+  "falzarego-pass": {
+   "file": "Lagazuoi_cable_car_1.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Lagazuoi_cable_car_1.jpg/960px-Lagazuoi_cable_car_1.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Lagazuoi_cable_car_1.jpg",
+   "author": "kallerna",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "giau-pass": {
+   "file": "Passo_di_Giau.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Passo_di_Giau.jpg/960px-Passo_di_Giau.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:Passo_di_Giau.jpg",
+   "author": "Frisia Orientalis",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "cortina": {
+   "file": "Faloria_Cortina_d'Ampezzo_10.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Faloria_Cortina_d%27Ampezzo_10.jpg/960px-Faloria_Cortina_d%27Ampezzo_10.jpg",
+   "w": 960,
+   "h": 664,
+   "page": "https://commons.wikimedia.org/wiki/File:Faloria_Cortina_d%27Ampezzo_10.jpg",
+   "author": "kallerna",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "arabba": {
+   "file": "Arabba_2002-09-26_08.05.18.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Arabba_2002-09-26_08.05.18.jpg/960px-Arabba_2002-09-26_08.05.18.jpg",
+   "w": 960,
+   "h": 751,
+   "page": "https://commons.wikimedia.org/wiki/File:Arabba_2002-09-26_08.05.18.jpg",
+   "author": "Alexander Hoernigk",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0"
+  },
+  "san-candido": {
+   "file": "Dolomites_-_San_Candido_area_-_(11059285755).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Dolomites_-_San_Candido_area_-_%2811059285755%29.jpg/960px-Dolomites_-_San_Candido_area_-_%2811059285755%29.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:Dolomites_-_San_Candido_area_-_(11059285755).jpg",
+   "author": "Murray Foubister",
+   "license": "CC BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  "misurina": {
+   "file": "Lago_di_misurina.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Lago_di_misurina.jpg/960px-Lago_di_misurina.jpg",
+   "w": 960,
+   "h": 712,
+   "page": "https://commons.wikimedia.org/wiki/File:Lago_di_misurina.jpg",
+   "author": "User Giampaolo.Trapasso on it.wikipedia; Improved Version: User ThomasKloiber",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "lago-del-predil": {
+   "file": "Lago_del_Predil,_Tarvisio,_2013.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Lago_del_Predil%2C_Tarvisio%2C_2013.jpg/960px-Lago_del_Predil%2C_Tarvisio%2C_2013.jpg",
+   "w": 960,
+   "h": 638,
+   "page": "https://commons.wikimedia.org/wiki/File:Lago_del_Predil,_Tarvisio,_2013.jpg",
+   "author": "DimiTalen",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "predil-pass": {
+   "file": "Mangrt_05.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Mangrt_05.jpg/960px-Mangrt_05.jpg",
+   "w": 960,
+   "h": 643,
+   "page": "https://commons.wikimedia.org/wiki/File:Mangrt_05.jpg",
+   "author": "Mihael Grmek",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "soca-valley": {
+   "file": "Soca_4.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Soca_4.jpg/960px-Soca_4.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Soca_4.jpg",
+   "author": "Florian Jesse",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "vrsic-pass": {
+   "file": "Vrsic2.JPG",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Vrsic2.JPG/960px-Vrsic2.JPG",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Vrsic2.JPG",
+   "author": "Sl-Ziga",
+   "license": "Public domain",
+   "licenseUrl": null
+  },
+  "bruges": {
+   "file": "Brügge_Blick_vom_Belfried_4.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Br%C3%BCgge_Blick_vom_Belfried_4.jpg/960px-Br%C3%BCgge_Blick_vom_Belfried_4.jpg",
+   "w": 960,
+   "h": 615,
+   "page": "https://commons.wikimedia.org/wiki/File:Br%C3%BCgge_Blick_vom_Belfried_4.jpg",
+   "author": "Zairon",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "ghent": {
+   "file": "Gent,_de_Graslei_vanaf_de_Korenlei_met_oeg24758tm61+25159_IMG_0447_2021-08-13_18.37.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Gent%2C_de_Graslei_vanaf_de_Korenlei_met_oeg24758tm61%2B25159_IMG_0447_2021-08-13_18.37.jpg/960px-Gent%2C_de_Graslei_vanaf_de_Korenlei_met_oeg24758tm61%2B25159_IMG_0447_2021-08-13_18.37.jpg",
+   "w": 960,
+   "h": 641,
+   "page": "https://commons.wikimedia.org/wiki/File:Gent,_de_Graslei_vanaf_de_Korenlei_met_oeg24758tm61%2B25159_IMG_0447_2021-08-13_18.37.jpg",
+   "author": "Michielverbeek",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "rhine-gorge": {
+   "file": "St.Goarshausen_Loreley_Burg_Katz_2016-03-27-17-13-57.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/St.Goarshausen_Loreley_Burg_Katz_2016-03-27-17-13-57.jpg/960px-St.Goarshausen_Loreley_Burg_Katz_2016-03-27-17-13-57.jpg",
+   "w": 960,
+   "h": 620,
+   "page": "https://commons.wikimedia.org/wiki/File:St.Goarshausen_Loreley_Burg_Katz_2016-03-27-17-13-57.jpg",
+   "author": "Alexander Hoernigk",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0"
+  },
+  "loreley": {
+   "file": "Loreley,_Rhine,_Castle_Katz.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Loreley%2C_Rhine%2C_Castle_Katz.jpg/960px-Loreley%2C_Rhine%2C_Castle_Katz.jpg",
+   "w": 960,
+   "h": 454,
+   "page": "https://commons.wikimedia.org/wiki/File:Loreley,_Rhine,_Castle_Katz.jpg",
+   "author": "imehling",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "bacharach": {
+   "file": "Bacharach_from_the_Postenturm.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Bacharach_from_the_Postenturm.jpg/960px-Bacharach_from_the_Postenturm.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:Bacharach_from_the_Postenturm.jpg",
+   "author": "Jiuguang Wang",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "boppard": {
+   "file": "11210001.JPG",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/11210001.JPG/960px-11210001.JPG",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:11210001.JPG",
+   "author": "The original uploader was Thomas.Hoffmann at German Wikipedia. (Original text: T",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "rudesheim": {
+   "file": "Panoramic_View_of_Rüdesheim_am_Rhein_20140928_1.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Panoramic_View_of_R%C3%BCdesheim_am_Rhein_20140928_1.jpg/960px-Panoramic_View_of_R%C3%BCdesheim_am_Rhein_20140928_1.jpg",
+   "w": 960,
+   "h": 360,
+   "page": "https://commons.wikimedia.org/wiki/File:Panoramic_View_of_R%C3%BCdesheim_am_Rhein_20140928_1.jpg",
+   "author": "DXR",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "wurzburg-residenz": {
+   "file": "2004-06-27-Germany-Wuerzburg-Lutz_Marten-Residenz_side_view_1.jpg",
+   "src": "https://upload.wikimedia.org/wikipedia/commons/d/da/2004-06-27-Germany-Wuerzburg-Lutz_Marten-Residenz_side_view_1.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:2004-06-27-Germany-Wuerzburg-Lutz_Marten-Residenz_side_view_1.jpg",
+   "author": "Unknown",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "walhalla": {
+   "file": "Walhalla_wie_Parthenon_zu_Ehren_bedeutender_Personen_-_erbaut_1842_-_König_Ludwig_I_-_Foto_Wolfgang_Pehlemann_DSCN2430.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Walhalla_wie_Parthenon_zu_Ehren_bedeutender_Personen_-_erbaut_1842_-_K%C3%B6nig_Ludwig_I_-_Foto_Wolfgang_Pehlemann_DSCN2430.jpg/960px-Walhalla_wie_Parthenon_zu_Ehren_bedeutender_Personen_-_erbaut_1842_-_K%C3%B6nig_Ludwig_I_-_Foto_Wolfgang_Pehlemann_DSCN2430.jpg",
+   "w": 960,
+   "h": 600,
+   "page": "https://commons.wikimedia.org/wiki/File:Walhalla_wie_Parthenon_zu_Ehren_bedeutender_Personen_-_erbaut_1842_-_K%C3%B6nig_Ludwig_I_-_Foto_Wolfgang_Pehlemann_DSCN2430.jpg",
+   "author": "Wolfgang Pehlemann",
+   "license": "CC BY-SA 3.0 de",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en"
+  },
+  "regensburg": {
+   "file": "Regensburger_Altstadt_von_oben_.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Regensburger_Altstadt_von_oben_.jpg/960px-Regensburger_Altstadt_von_oben_.jpg",
+   "w": 960,
+   "h": 540,
+   "page": "https://commons.wikimedia.org/wiki/File:Regensburger_Altstadt_von_oben_.jpg",
+   "author": "Geschichtsfanatiker",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "bamberg": {
+   "file": "Kloster_Michaelsberg_Parkseite.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Kloster_Michaelsberg_Parkseite.jpg/960px-Kloster_Michaelsberg_Parkseite.jpg",
+   "w": 960,
+   "h": 552,
+   "page": "https://commons.wikimedia.org/wiki/File:Kloster_Michaelsberg_Parkseite.jpg",
+   "author": "Reinhard Kirchner",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "nuremberg": {
+   "file": "Nürnberger_Burg_im_Herbst_2013.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/N%C3%BCrnberger_Burg_im_Herbst_2013.jpg/960px-N%C3%BCrnberger_Burg_im_Herbst_2013.jpg",
+   "w": 960,
+   "h": 638,
+   "page": "https://commons.wikimedia.org/wiki/File:N%C3%BCrnberger_Burg_im_Herbst_2013.jpg",
+   "author": "DALIBRI",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "herrenchiemsee": {
+   "file": "Schloss_Herrenchiemsee.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Schloss_Herrenchiemsee.jpg/960px-Schloss_Herrenchiemsee.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:Schloss_Herrenchiemsee.jpg",
+   "author": "Michimaya",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0"
+  },
+  "salzburg": {
+   "file": "Salzburg_(48489551981).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Salzburg_%2848489551981%29.jpg/960px-Salzburg_%2848489551981%29.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:Salzburg_(48489551981).jpg",
+   "author": "Jorge Franganillo",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  "konigssee": {
+   "file": "Königsee_in_Bayern.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/K%C3%B6nigsee_in_Bayern.jpg/960px-K%C3%B6nigsee_in_Bayern.jpg",
+   "w": 960,
+   "h": 1280,
+   "page": "https://commons.wikimedia.org/wiki/File:K%C3%B6nigsee_in_Bayern.jpg",
+   "author": "Mtt1734",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "wolfgangsee": {
+   "file": "Aerial_image_of_the_Wolfgangsee_(view_from_the_southeast).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Aerial_image_of_the_Wolfgangsee_%28view_from_the_southeast%29.jpg/960px-Aerial_image_of_the_Wolfgangsee_%28view_from_the_southeast%29.jpg",
+   "w": 960,
+   "h": 580,
+   "page": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_the_Wolfgangsee_(view_from_the_southeast).jpg",
+   "author": "Carsten Steger",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "bad-ischl": {
+   "file": "Bad_Ischl_and_Traun_River.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Bad_Ischl_and_Traun_River.jpg/960px-Bad_Ischl_and_Traun_River.jpg",
+   "w": 960,
+   "h": 542,
+   "page": "https://commons.wikimedia.org/wiki/File:Bad_Ischl_and_Traun_River.jpg",
+   "author": "David McGregor",
+   "license": "CC BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  "hallstatt": {
+   "file": "Hallstatt_-_Zentrum_.JPG",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Hallstatt_-_Zentrum_.JPG/960px-Hallstatt_-_Zentrum_.JPG",
+   "w": 960,
+   "h": 663,
+   "page": "https://commons.wikimedia.org/wiki/File:Hallstatt_-_Zentrum_.JPG",
+   "author": "C.Stadler/Bwag",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "obertauern-pass": {
+   "file": "Radstaedter.jpg",
+   "src": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Radstaedter.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Radstaedter.jpg",
+   "author": "Ulflulfl",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "worthersee": {
+   "file": "Aerial_image_of_Wörthersee_(view_from_the_southeast).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Aerial_image_of_W%C3%B6rthersee_%28view_from_the_southeast%29.jpg/960px-Aerial_image_of_W%C3%B6rthersee_%28view_from_the_southeast%29.jpg",
+   "w": 960,
+   "h": 627,
+   "page": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_W%C3%B6rthersee_(view_from_the_southeast).jpg",
+   "author": "Carsten Steger",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "loibl-pass": {
+   "file": "Ferlach_Loibltal_Alter_Loiblpass_mit_Obelisken_24052011_555.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Ferlach_Loibltal_Alter_Loiblpass_mit_Obelisken_24052011_555.jpg/960px-Ferlach_Loibltal_Alter_Loiblpass_mit_Obelisken_24052011_555.jpg",
+   "w": 960,
+   "h": 638,
+   "page": "https://commons.wikimedia.org/wiki/File:Ferlach_Loibltal_Alter_Loiblpass_mit_Obelisken_24052011_555.jpg",
+   "author": "Johann Jaritz",
+   "license": "CC BY-SA 3.0 at",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/at/deed.en"
+  },
+  "route-des-grands-crus": {
+   "file": "Route_des_Grand_Crus.jpg",
+   "src": "https://upload.wikimedia.org/wikipedia/commons/9/92/Route_des_Grand_Crus.jpg",
+   "w": 960,
+   "h": 570,
+   "page": "https://commons.wikimedia.org/wiki/File:Route_des_Grand_Crus.jpg",
+   "author": "Thomas Svahn",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "hospices-de-beaune": {
+   "file": "Beaune_-_Hôtel-Dieu_-_Cour_-_05.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Beaune_-_H%C3%B4tel-Dieu_-_Cour_-_05.jpg/960px-Beaune_-_H%C3%B4tel-Dieu_-_Cour_-_05.jpg",
+   "w": 960,
+   "h": 686,
+   "page": "https://commons.wikimedia.org/wiki/File:Beaune_-_H%C3%B4tel-Dieu_-_Cour_-_05.jpg",
+   "author": "Benjamin Smith",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "dijon": {
+   "file": "Dijon_-_Puits_de_Moïse_-_02.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Dijon_-_Puits_de_Mo%C3%AFse_-_02.jpg/960px-Dijon_-_Puits_de_Mo%C3%AFse_-_02.jpg",
+   "w": 960,
+   "h": 641,
+   "page": "https://commons.wikimedia.org/wiki/File:Dijon_-_Puits_de_Mo%C3%AFse_-_02.jpg",
+   "author": "Benjamin Smith",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "perouges": {
+   "file": "Cité_médiévale_de_Pérouges_-_Marilou_Perino.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Cit%C3%A9_m%C3%A9di%C3%A9vale_de_P%C3%A9rouges_-_Marilou_Perino.jpg/960px-Cit%C3%A9_m%C3%A9di%C3%A9vale_de_P%C3%A9rouges_-_Marilou_Perino.jpg",
+   "w": 960,
+   "h": 482,
+   "page": "https://commons.wikimedia.org/wiki/File:Cit%C3%A9_m%C3%A9di%C3%A9vale_de_P%C3%A9rouges_-_Marilou_Perino.jpg",
+   "author": "Marilou Perino",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "annecy": {
+   "file": "Préfecture_de_Haute-Savoie_(Annecy)_(cropped).JPG",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Pr%C3%A9fecture_de_Haute-Savoie_%28Annecy%29_%28cropped%29.JPG/960px-Pr%C3%A9fecture_de_Haute-Savoie_%28Annecy%29_%28cropped%29.JPG",
+   "w": 960,
+   "h": 649,
+   "page": "https://commons.wikimedia.org/wiki/File:Pr%C3%A9fecture_de_Haute-Savoie_(Annecy)_(cropped).JPG",
+   "author": "Florian Pépellin",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "lake-annecy": {
+   "file": "Aerial_image_of_Lake_Annecy_(view_from_the_south).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Aerial_image_of_Lake_Annecy_%28view_from_the_south%29.jpg/960px-Aerial_image_of_Lake_Annecy_%28view_from_the_south%29.jpg",
+   "w": 960,
+   "h": 593,
+   "page": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_Lake_Annecy_(view_from_the_south).jpg",
+   "author": "Carsten Steger",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "talloires": {
+   "file": "Talloires.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Talloires.jpg/960px-Talloires.jpg",
+   "w": 960,
+   "h": 665,
+   "page": "https://commons.wikimedia.org/wiki/File:Talloires.jpg",
+   "author": "Serge LAURENT",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "col-de-la-forclaz": {
+   "file": "Aerial_image_of_Lake_Annecy_(view_from_the_south).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Aerial_image_of_Lake_Annecy_%28view_from_the_south%29.jpg/960px-Aerial_image_of_Lake_Annecy_%28view_from_the_south%29.jpg",
+   "w": 960,
+   "h": 593,
+   "page": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_Lake_Annecy_(view_from_the_south).jpg",
+   "author": "Carsten Steger",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "col-des-aravis": {
+   "file": "Col_des_Aravis_(2011).JPG",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Col_des_Aravis_%282011%29.JPG/960px-Col_des_Aravis_%282011%29.JPG",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Col_des_Aravis_(2011).JPG",
+   "author": "Florian Pépellin",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "megeve": {
+   "file": "Village_@_Rochebrune_@_Megève_(51037436052).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Village_%40_Rochebrune_%40_Meg%C3%A8ve_%2851037436052%29.jpg/960px-Village_%40_Rochebrune_%40_Meg%C3%A8ve_%2851037436052%29.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:Village_@_Rochebrune_@_Meg%C3%A8ve_(51037436052).jpg",
+   "author": "Guilhem Vellut from Annecy, France",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  "chamonix": {
+   "file": "Chamonix_valley_from_la_Flégère,2010_07.JPG",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Chamonix_valley_from_la_Fl%C3%A9g%C3%A8re%2C2010_07.JPG/960px-Chamonix_valley_from_la_Fl%C3%A9g%C3%A8re%2C2010_07.JPG",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:Chamonix_valley_from_la_Fl%C3%A9g%C3%A8re,2010_07.JPG",
+   "author": "Ximonic, Simo Räsänen",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "aiguille-du-midi": {
+   "file": "Aiguille-du-Midi-sundown.JPG",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Aiguille-du-Midi-sundown.JPG/960px-Aiguille-du-Midi-sundown.JPG",
+   "w": 960,
+   "h": 1277,
+   "page": "https://commons.wikimedia.org/wiki/File:Aiguille-du-Midi-sundown.JPG",
+   "author": "Garrondo",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "mont-blanc-tunnel": {
+   "file": "Tunnel_du_mont-blanc_coté_italien.jpg",
+   "src": "https://upload.wikimedia.org/wikipedia/commons/9/96/Tunnel_du_mont-blanc_cot%C3%A9_italien.jpg",
+   "w": 960,
+   "h": 718,
+   "page": "https://commons.wikimedia.org/wiki/File:Tunnel_du_mont-blanc_cot%C3%A9_italien.jpg",
+   "author": "Photo prise par François Trazzi",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "skyway-monte-bianco": {
+   "file": "Skyway_Monte_Bianco.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Skyway_Monte_Bianco.jpg/960px-Skyway_Monte_Bianco.jpg",
+   "w": 960,
+   "h": 859,
+   "page": "https://commons.wikimedia.org/wiki/File:Skyway_Monte_Bianco.jpg",
+   "author": "Tiia Monto",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "aosta": {
+   "file": "Aosta_and_mountains.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Aosta_and_mountains.jpg/960px-Aosta_and_mountains.jpg",
+   "w": 960,
+   "h": 563,
+   "page": "https://commons.wikimedia.org/wiki/File:Aosta_and_mountains.jpg",
+   "author": "Tiia Monto",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "gran-paradiso": {
+   "file": "Le_prime_luci_dell'alba_in_Valle_Orco_-_Ceresole_Reale,_Colle_del_Nivolet.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Le_prime_luci_dell%27alba_in_Valle_Orco_-_Ceresole_Reale%2C_Colle_del_Nivolet.jpg/960px-Le_prime_luci_dell%27alba_in_Valle_Orco_-_Ceresole_Reale%2C_Colle_del_Nivolet.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:Le_prime_luci_dell%27alba_in_Valle_Orco_-_Ceresole_Reale,_Colle_del_Nivolet.jpg",
+   "author": "Alberto Peracchio",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "asolo": {
+   "file": "Asolo-Nov-2021jpg_(3).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Asolo-Nov-2021jpg_%283%29.jpg/960px-Asolo-Nov-2021jpg_%283%29.jpg",
+   "w": 960,
+   "h": 334,
+   "page": "https://commons.wikimedia.org/wiki/File:Asolo-Nov-2021jpg_(3).jpg",
+   "author": "ModriDirkac",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "bassano": {
+   "file": "Bassano_del_Grappa_Vista_Aerea.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Bassano_del_Grappa_Vista_Aerea.jpg/960px-Bassano_del_Grappa_Vista_Aerea.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Bassano_del_Grappa_Vista_Aerea.jpg",
+   "author": "Paolo Fiorese",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "cartizze": {
+   "file": "Hillside_View_of_Valdobbiadene.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Hillside_View_of_Valdobbiadene.jpg/960px-Hillside_View_of_Valdobbiadene.jpg",
+   "w": 960,
+   "h": 1280,
+   "page": "https://commons.wikimedia.org/wiki/File:Hillside_View_of_Valdobbiadene.jpg",
+   "author": "Mruzzene (talk) Latter image enhancement by Sandstein (talk).",
+   "license": "Public domain",
+   "licenseUrl": null
+  },
+  "conegliano": {
+   "file": "Conegliano_vista_dal_Castello.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Conegliano_vista_dal_Castello.jpg/960px-Conegliano_vista_dal_Castello.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Conegliano_vista_dal_Castello.jpg",
+   "author": "Paolo Steffan (Paolo Steffan at it.wikipedia)",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "cividale": {
+   "file": "Cividale_in_panoramic.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Cividale_in_panoramic.jpg/960px-Cividale_in_panoramic.jpg",
+   "w": 960,
+   "h": 528,
+   "page": "https://commons.wikimedia.org/wiki/File:Cividale_in_panoramic.jpg",
+   "author": "Ewgohl",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "goriska-brda": {
+   "file": "Hum-GoriskaBrda.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Hum-GoriskaBrda.jpg/960px-Hum-GoriskaBrda.jpg",
+   "w": 960,
+   "h": 618,
+   "page": "https://commons.wikimedia.org/wiki/File:Hum-GoriskaBrda.jpg",
+   "author": "Sl-Ziga",
+   "license": "Public domain",
+   "licenseUrl": null
+  },
+  "vipava-valley": {
+   "file": "Podnanos.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Podnanos.jpg/960px-Podnanos.jpg",
+   "w": 960,
+   "h": 493,
+   "page": "https://commons.wikimedia.org/wiki/File:Podnanos.jpg",
+   "author": "Sl-Ziga",
+   "license": "Public domain",
+   "licenseUrl": null
+  },
+  "karlovy-vary": {
+   "file": "Karlovy_Vary_Czech.jpg",
+   "src": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Karlovy_Vary_Czech.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:Karlovy_Vary_Czech.jpg",
+   "author": "Jialiang Gao, www.peace-on-earth.org",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "prague": {
+   "file": "Prague_(6365119737).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Prague_%286365119737%29.jpg/960px-Prague_%286365119737%29.jpg",
+   "w": 960,
+   "h": 571,
+   "page": "https://commons.wikimedia.org/wiki/File:Prague_(6365119737).jpg",
+   "author": "Moyan Brenn from Italy",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  "cesky-krumlov": {
+   "file": "Blick_auf_das_Stadtzentrum_von_Krumau_(2026).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Blick_auf_das_Stadtzentrum_von_Krumau_%282026%29.jpg/960px-Blick_auf_das_Stadtzentrum_von_Krumau_%282026%29.jpg",
+   "w": 960,
+   "h": 723,
+   "page": "https://commons.wikimedia.org/wiki/File:Blick_auf_das_Stadtzentrum_von_Krumau_(2026).jpg",
+   "author": "DominikCK1999",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
+  },
+  "wachau": {
+   "file": "Wachau_(2).JPG",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Wachau_%282%29.JPG/960px-Wachau_%282%29.JPG",
+   "w": 960,
+   "h": 547,
+   "page": "https://commons.wikimedia.org/wiki/File:Wachau_(2).JPG",
+   "author": "C.Stadler/Bwag",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "melk-abbey": {
+   "file": "Stift_Melk,_Westansicht.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Stift_Melk%2C_Westansicht.jpg/960px-Stift_Melk%2C_Westansicht.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:Stift_Melk,_Westansicht.jpg",
+   "author": "Thomas Ledl",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "vienna": {
+   "file": "Schoenbrunn_philharmoniker_2012.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Schoenbrunn_philharmoniker_2012.jpg/960px-Schoenbrunn_philharmoniker_2012.jpg",
+   "w": 960,
+   "h": 432,
+   "page": "https://commons.wikimedia.org/wiki/File:Schoenbrunn_philharmoniker_2012.jpg",
+   "author": "Superbass",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "semmering": {
+   "file": "Semmering-bahn.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Semmering-bahn.jpg/960px-Semmering-bahn.jpg",
+   "w": 960,
+   "h": 380,
+   "page": "https://commons.wikimedia.org/wiki/File:Semmering-bahn.jpg",
+   "author": "Unknown",
+   "license": "Public domain",
+   "licenseUrl": null
+  },
+  "graz": {
+   "file": "Graz_(35932179023).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Graz_%2835932179023%29.jpg/960px-Graz_%2835932179023%29.jpg",
+   "w": 960,
+   "h": 641,
+   "page": "https://commons.wikimedia.org/wiki/File:Graz_(35932179023).jpg",
+   "author": "Nick Savchenko from Kiev, Ukraine",
+   "license": "CC BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  "chur": {
+   "file": "View_of_Chur.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/View_of_Chur.jpg/960px-View_of_Chur.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:View_of_Chur.jpg",
+   "author": "Amarco90",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "vaduz": {
+   "file": "View_of_Vaduz.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/View_of_Vaduz.jpg/960px-View_of_Vaduz.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:View_of_Vaduz.jpg",
+   "author": "Lucas Kendall",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "davos": {
+   "file": "City_of_Davos.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/City_of_Davos.jpg/960px-City_of_Davos.jpg",
+   "w": 960,
+   "h": 1163,
+   "page": "https://commons.wikimedia.org/wiki/File:City_of_Davos.jpg",
+   "author": "MadGeographer",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "tonale-pass": {
+   "file": "Passo_Tonale_summer.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Passo_Tonale_summer.jpg/960px-Passo_Tonale_summer.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Passo_Tonale_summer.jpg",
+   "author": "Gabri80 at Italian Wikipedia",
+   "license": "Public domain",
+   "licenseUrl": null
+  },
+  "mendel-pass": {
+   "file": "Mendelpass_(Ostrampe).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Mendelpass_%28Ostrampe%29.jpg/960px-Mendelpass_%28Ostrampe%29.jpg",
+   "w": 960,
+   "h": 1437,
+   "page": "https://commons.wikimedia.org/wiki/File:Mendelpass_(Ostrampe).jpg",
+   "author": "SteveK",
+   "license": "CC BY 2.5",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.5"
+  },
+  "swiss-national-park": {
+   "file": "Ofenpass.jpg",
+   "src": "https://upload.wikimedia.org/wikipedia/commons/7/76/Ofenpass.jpg",
+   "w": 960,
+   "h": 651,
+   "page": "https://commons.wikimedia.org/wiki/File:Ofenpass.jpg",
+   "author": "Unknown",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "bolzano": {
+   "file": "Bozen-Bolzano_from_the_Oswaldpromenade.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Bozen-Bolzano_from_the_Oswaldpromenade.jpg/960px-Bozen-Bolzano_from_the_Oswaldpromenade.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Bozen-Bolzano_from_the_Oswaldpromenade.jpg",
+   "author": "Bartleby08",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
+  },
+  "merano": {
+   "file": "Meran,_Panorama_(Blick_vom_Pulverturm).jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Meran%2C_Panorama_%28Blick_vom_Pulverturm%29.jpg/960px-Meran%2C_Panorama_%28Blick_vom_Pulverturm%29.jpg",
+   "w": 960,
+   "h": 400,
+   "page": "https://commons.wikimedia.org/wiki/File:Meran,_Panorama_(Blick_vom_Pulverturm).jpg",
+   "author": "Rolf Kranz",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "lago-di-carezza": {
+   "file": "Carezza_Lake.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Carezza_Lake.jpg/960px-Carezza_Lake.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:Carezza_Lake.jpg",
+   "author": "Olga1969",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
+  },
+  "sappada": {
+   "file": "Sappada_panorama.jpg",
+   "src": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Sappada_panorama.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Sappada_panorama.jpg",
+   "author": "Created by User:Sebi1",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "stelvio": {
+   "file": "Stelvio_Pass_Bolzano_side_1.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Stelvio_Pass_Bolzano_side_1.jpg/960px-Stelvio_Pass_Bolzano_side_1.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:Stelvio_Pass_Bolzano_side_1.jpg",
+   "author": "kallerna",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "furka": {
+   "file": "Furkapass_westside.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Furkapass_westside.jpg/960px-Furkapass_westside.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Furkapass_westside.jpg",
+   "author": "Cooper.ch 10:27, 27 October 2006 (UTC)",
+   "license": "CC BY 2.5",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.5"
+  },
+  "grimsel": {
+   "file": "Grimselpass-passhöhe01.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Grimselpass-passh%C3%B6he01.jpg/960px-Grimselpass-passh%C3%B6he01.jpg",
+   "w": 960,
+   "h": 662,
+   "page": "https://commons.wikimedia.org/wiki/File:Grimselpass-passh%C3%B6he01.jpg",
+   "author": "Nikater",
+   "license": "Public domain",
+   "licenseUrl": null
+  },
+  "susten": {
+   "file": "Picswiss_BE-95-09_Sustenpass-_Passhöhe.jpg",
+   "src": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Picswiss_BE-95-09_Sustenpass-_Passh%C3%B6he.jpg",
+   "w": 960,
+   "h": 639,
+   "page": "https://commons.wikimedia.org/wiki/File:Picswiss_BE-95-09_Sustenpass-_Passh%C3%B6he.jpg",
+   "author": "Roland Zumbühl (Picswiss), Arlesheim (Commons:Picswiss project)",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "timmelsjoch": {
+   "file": "Timmelsjoch_view_south.jpg",
+   "src": "https://upload.wikimedia.org/wikipedia/commons/7/70/Timmelsjoch_view_south.jpg",
+   "w": 960,
+   "h": 653,
+   "page": "https://commons.wikimedia.org/wiki/File:Timmelsjoch_view_south.jpg",
+   "author": "The original uploader was Nhbergboer at English Wikipedia.",
+   "license": "CC BY 1.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/1.0"
+  },
+  "great-st-bernard": {
+   "file": "GreatStBernardPassAugust232023_03.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/GreatStBernardPassAugust232023_03.jpg/960px-GreatStBernardPassAugust232023_03.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:GreatStBernardPassAugust232023_03.jpg",
+   "author": "Hagai Agmon-Snir حچاي اچمون-سنير חגי אגמון-שניר",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "mangart": {
+   "file": "Mangart_16.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Mangart_16.jpg/960px-Mangart_16.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:Mangart_16.jpg",
+   "author": "kallerna",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "albula": {
+   "file": "Albula_Road.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Albula_Road.jpg/960px-Albula_Road.jpg",
+   "w": 960,
+   "h": 492,
+   "page": "https://commons.wikimedia.org/wiki/File:Albula_Road.jpg",
+   "author": "Photography: albularider Post-production: Zacharie Grossen",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  "tre-cime": {
+   "file": "2019_Tre_Cime.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/2019_Tre_Cime.jpg/960px-2019_Tre_Cime.jpg",
+   "w": 960,
+   "h": 549,
+   "page": "https://commons.wikimedia.org/wiki/File:2019_Tre_Cime.jpg",
+   "author": "Tiia Monto",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "hahntennjoch": {
+   "file": "Hahntennjoch_Ost.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Hahntennjoch_Ost.jpg/960px-Hahntennjoch_Ost.jpg",
+   "w": 960,
+   "h": 640,
+   "page": "https://commons.wikimedia.org/wiki/File:Hahntennjoch_Ost.jpg",
+   "author": "SteveK",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "gotthard-pass": {
+   "file": "Gotthardpass_2008.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Gotthardpass_2008.jpg/960px-Gotthardpass_2008.jpg",
+   "w": 960,
+   "h": 720,
+   "page": "https://commons.wikimedia.org/wiki/File:Gotthardpass_2008.jpg",
+   "author": "Figugegl",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "lauterbrunnen": {
+   "file": "1_lauterbrunnen_valley_wengen_2022.jpg",
+   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/1_lauterbrunnen_valley_wengen_2022.jpg/960px-1_lauterbrunnen_valley_wengen_2022.jpg",
+   "w": 960,
+   "h": 645,
+   "page": "https://commons.wikimedia.org/wiki/File:1_lauterbrunnen_valley_wengen_2022.jpg",
+   "author": "Chensiyuan",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  }
+ }
+}

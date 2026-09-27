@@ -27,3 +27,4 @@ public/vendor
 test-results
 playwright-report
 .env
+screenshots

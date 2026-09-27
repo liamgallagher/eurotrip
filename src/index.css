@@ -266,6 +266,13 @@ p {
   padding: 6px 12px;
   font-size: 13px;
 }
+.seg--tight {
+  padding: 2px;
+}
+.seg--tight button {
+  padding: 4px 10px;
+  min-width: 32px;
+}
 .chips {
   display: flex;
   flex-wrap: wrap;
@@ -1292,8 +1299,13 @@ main > section + section {
 }
 .builder__cols {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 22px;
+}
+.dirpanel select {
+  width: 100%;
+  min-width: 0;
+  text-overflow: ellipsis;
 }
 .dirpanel {
   background: var(--card);
@@ -1400,7 +1412,7 @@ main > section + section {
 }
 .stop select {
   flex: 1;
-  min-width: 180px;
+  min-width: 0;
   font-weight: 600;
 }
 .stop__blurb {
@@ -2331,7 +2343,7 @@ main > section + section {
   .builder__cols,
   .countries__grid,
   .footer__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .total {
     margin-left: 0;
@@ -2565,8 +2577,8 @@ main > section + section {
   .flycard__body p {
     font-size: 12.5px;
   }
-  .mapbox .maplibregl-ctrl-top-right {
-    top: 96px;
+  .map__panel {
+    right: 52px !important;
   }
   .mapbox.z-low .mk-night em {
     display: none;

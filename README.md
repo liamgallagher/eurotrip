@@ -33,6 +33,8 @@ The end-to-end suite runs at desktop (1440×900) and phone (Pixel 7) sizes. Ever
 
 Everything you change is saved in the browser (localStorage) and encoded into the URL (`#p=…`). The **Share plan** button copies the link, or opens the share sheet on a phone. Whoever opens the link gets exactly your routes, swaps, nights, detours, weights and stars.
 
+The public page opens on a neutral example week (Mon 3 May 2027). Your real dates live only in your own browser and your share link, so the public site doesn't advertise when you're away.
+
 The optional home address for Google Maps links is **only** stored on your device. It is never put in a share link or in the repo.
 
 ## How it works

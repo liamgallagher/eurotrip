@@ -9,7 +9,12 @@ import { EXCLUDED_HIGHLIGHTS } from '../src/data/exclusions'
 export const OVERRIDES: Record<string, string> = JSON.parse(existsSync('scripts/photo-overrides.json') ? readFileSync('scripts/photo-overrides.json', 'utf8') : '{}')
 
 const UA = { 'User-Agent': 'eurotrip-planner/1.0 (personal trip planner; https://github.com/liamgallagher/eurotrip)' }
-const all = [...Object.values(HIGHLIGHTS), ...EXCLUDED_HIGHLIGHTS]
+const everything = [...Object.values(HIGHLIGHTS), ...EXCLUDED_HIGHLIGHTS]
+// Incremental: keep already-resolved photos unless their override changed (use --all to redo everything).
+const prev = existsSync('src/data/photos.json') ? (JSON.parse(readFileSync('src/data/photos.json', 'utf8')).photos as Record<string, { file: string }>) : {}
+const redoAll = process.argv.includes('--all')
+const all = everything.filter((h) => redoAll || !prev[h.id] || (OVERRIDES[h.id] && OVERRIDES[h.id] !== prev[h.id].file))
+console.log(`resolving ${all.length} of ${everything.length} photos`)
 /** Wikimedia rate-limits shared IPs hard: back off and retry. */
 async function getJson(u: string) {
   for (let attempt = 0; attempt < 8; attempt++) {
@@ -67,6 +72,7 @@ for (const batch of chunk([...files], 40)) {
   }
 }
 const out: Record<string, unknown> = {}
+for (const h of everything) if (!all.includes(h) && prev[h.id]) out[h.id] = prev[h.id]
 const missing: string[] = []
 for (const h of all) {
   const f = hlFile[h.id]
@@ -74,4 +80,4 @@ for (const h of all) {
   else missing.push(h.id)
 }
 writeFileSync('src/data/photos.json', JSON.stringify({ fetchedAt: new Date().toISOString(), photos: out }, null, 1))
-console.log(`photos: ${Object.keys(out).length}/${all.length}; missing: ${missing.join(', ') || 'none'}`)
+console.log(`photos: ${Object.keys(out).length}/${everything.length}; missing: ${missing.join(', ') || 'none'}`)

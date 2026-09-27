@@ -65,8 +65,10 @@ describe('plan builder', () => {
     expect(p.totalNights).toBe(14)
     expect(p.outNights).toBe(5)
     expect(p.retNights).toBe(5)
-    expect(p.days[0].date).toBe('2027-05-10')
-    expect(p.endDate).toBe('2027-05-24')
+    expect(p.days[0].date).toBe(DEFAULT_STATE.startDate)
+    expect(p.endDate).toBe(addDays(DEFAULT_STATE.startDate, 14))
+    const mine = buildPlan({ ...DEFAULT_STATE, startDate: '2027-05-10' })
+    expect(mine.endDate).toBe('2027-05-24')
     expect(p.warnings.filter((w) => w.level !== 'info')).toHaveLength(0)
   })
   it('warns when nights are not 14 and when routes repeat', () => {

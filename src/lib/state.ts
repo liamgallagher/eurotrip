@@ -34,7 +34,8 @@ export function defaultStops(routeId: string): string[] {
 }
 
 export const DEFAULT_STATE: TripState = {
-  startDate: '2027-05-10',
+  // Public example week. Your real dates live in your share link / this browser, not in the public page.
+  startDate: '2027-05-03',
   out: { route: 'r1', stops: defaultStops('r1'), nights: [1, 1, 1, 1, 1], crossing: 'tunnel' },
   ret: { route: 'r2', stops: defaultStops('r2'), nights: [1, 1, 1, 1, 1], crossing: 'tunnel' },
   sloveniaNights: 4,

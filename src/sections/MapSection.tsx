@@ -3,7 +3,7 @@ import * as maplibregl from 'maplibre-gl'
 import type { GeoJSONSource, Map as MLMap } from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { AnimatePresence, motion } from 'motion/react'
-import { useUi } from '../store'
+import { useTrip, useUi } from '../store'
 import { useReducedMotion, type TripModel } from '../hooks'
 import { TERRARIUM_URL } from '../lib/dem'
 import { bearing, cumulative, pointAt, type LngLat } from '../lib/geo'
@@ -14,6 +14,49 @@ import { fmtDate, fmtH, fmtKm } from '../ui/format'
 import { ElevationProfile } from './ElevationProfile'
 import { OUT_COLOR, RET_COLOR } from '../ui/colors'
 import type { DayStats } from '../lib/tripStats'
+import { buildPlan } from '../lib/plan'
+import { DEFAULT_STATE, defaultStops, type TripState } from '../lib/state'
+import { loadLeg } from '../lib/runtime'
+import { ROUTE_BY_ID } from '../data/routes'
+import type { Place } from '../data/types'
+
+const CMP_COLORS = ['#0f766e', '#7c3aed']
+
+interface CmpRoute {
+  rid: string
+  coords: LngLat[]
+  stops: Place[]
+  highlights: string[]
+}
+
+/** Geometry, overnight stops and highlights for a route with its default stops (Channel → Slovenia). */
+async function loadRouteView(rid: string): Promise<CmpRoute> {
+  const r = ROUTE_BY_ID[rid]
+  const dir = r.directions === 'return-only' ? 'ret' : 'out'
+  const other = rid === 'r2' ? 'r1' : 'r2'
+  const st: TripState = {
+    ...DEFAULT_STATE,
+    [dir]: { route: rid, stops: defaultStops(rid), nights: [1, 1, 1, 1, 1], crossing: 'tunnel' },
+    [dir === 'out' ? 'ret' : 'out']: { route: other, stops: defaultStops(other), nights: [1, 1, 1, 1, 1], crossing: 'tunnel' },
+  } as TripState
+  const plan = buildPlan(st)
+  const days = plan.days.filter((d) => d.dir === dir && d.kind === 'drive')
+  const coords: LngLat[] = []
+  const stops: Place[] = []
+  const hl: string[] = []
+  for (const d of days) {
+    for (const seg of d.segments) {
+      if (seg.kind !== 'drive' || seg.waypoints[0].name === 'Southampton' || seg.waypoints.at(-1)!.name === 'Southampton') continue
+      try {
+        coords.push(...(await loadLeg(seg.key, seg.waypoints)).leg.coords)
+      } catch { /* skip missing leg */ }
+    }
+    if (typeof d.sleep === 'object' && d.sleep.id !== 'ljubljana') stops.push(d.sleep)
+    for (const h of d.highlights) if (!h.optional && !hl.includes(h.id)) hl.push(h.id)
+  }
+  if (dir === 'ret') stops.reverse()
+  return { rid, coords, stops, highlights: hl }
+}
 
 maplibregl.setWorkerUrl(new URL(`${import.meta.env.BASE_URL}vendor/maplibre/maplibre-gl-worker.mjs`, window.location.href).href)
 
@@ -58,6 +101,10 @@ export function MapSection({ model }: { model: TripModel }) {
   const [terrain, setTerrain] = useState(true)
   const [fly, setFly] = useState<{ running: boolean; paused: boolean; card: string | null; dayIdx: number } | null>(null)
   const [flySpeed, setFlySpeed] = useState(1)
+  const [mode, setMode] = useState<'plan' | 'compare'>('plan')
+  const compareIds = useTrip((s) => s.compare).slice(0, 2)
+  const compareKey = compareIds.join(',')
+  const [cmp, setCmp] = useState<CmpRoute[]>([])
   const flyRef = useRef({
     run: 0, dist: 0, coords: [] as LngLat[], cum: [] as number[], geomLen: 0, samplesKm: 0, stops: [] as FlyStop[], next: 0,
     pauseUntil: 0, last: 0, lastUi: 0, bearing: 0, cam: [0, 0] as LngLat, zoom: 11.3, zoomTarget: 11.3, lastZoom: 11.3,
@@ -101,7 +148,10 @@ export function MapSection({ model }: { model: TripModel }) {
     map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'top-right')
     map.addControl(new maplibregl.FullscreenControl(), 'top-right')
     map.on('error', (e) => console.warn('map error', e.error?.message))
-    const zoomClass = () => box.current?.parentElement?.classList.toggle('z-low', map.getZoom() < 6)
+    const zoomClass = () => {
+      box.current?.parentElement?.classList.toggle('z-low', map.getZoom() < 6)
+      box.current?.parentElement?.classList.toggle('z-labels', map.getZoom() >= 6.6)
+    }
     map.on('zoomend', zoomClass)
     zoomClass()
     map.on('load', () => {
@@ -119,6 +169,11 @@ export function MapSection({ model }: { model: TripModel }) {
         map.addLayer({ id: `${id}-casing`, type: 'line', source: id, layout: { 'line-join': 'round', 'line-cap': 'round' }, paint: { 'line-color': '#ffffff', 'line-width': ['interpolate', ['linear'], ['zoom'], 4, 4, 10, 9], 'line-opacity': 0.9, 'line-gradient': gradient('#ffffff', 0) } })
         map.addLayer({ id, type: 'line', source: id, layout: { 'line-join': 'round', 'line-cap': 'round' }, paint: { 'line-width': ['interpolate', ['linear'], ['zoom'], 4, 2.2, 10, 5], 'line-gradient': gradient(color, 0) } })
       }
+      CMP_COLORS.forEach((color, i) => {
+        map.addSource(`cmp-${i}`, { type: 'geojson', data: emptyFC() })
+        map.addLayer({ id: `cmp-${i}-casing`, type: 'line', source: `cmp-${i}`, layout: { 'line-join': 'round', 'line-cap': 'round', visibility: 'none' }, paint: { 'line-color': '#fff', 'line-width': ['interpolate', ['linear'], ['zoom'], 4, 5, 10, 10] } })
+        map.addLayer({ id: `cmp-${i}`, type: 'line', source: `cmp-${i}`, layout: { 'line-join': 'round', 'line-cap': 'round', visibility: 'none' }, paint: { 'line-color': color, 'line-width': ['interpolate', ['linear'], ['zoom'], 4, 3, 10, 6] } })
+      })
       map.addSource('day', { type: 'geojson', data: emptyFC() })
       map.addLayer({ id: 'day-glow', type: 'line', source: 'day', layout: { 'line-join': 'round', 'line-cap': 'round' }, paint: { 'line-color': '#f2c14e', 'line-width': ['interpolate', ['linear'], ['zoom'], 4, 8, 10, 16], 'line-opacity': 0.85, 'line-blur': 1.5 } }, 'route-ret-casing')
       map.addSource('chargers', { type: 'geojson', data: emptyFC() })
@@ -220,6 +275,36 @@ export function MapSection({ model }: { model: TripModel }) {
     [reduced],
   )
 
+  // ——— compare mode: load the compared routes
+  useEffect(() => {
+    if (mode !== 'compare') return
+    let alive = true
+    Promise.all(compareIds.map((id) => loadRouteView(id))).then((v) => alive && setCmp(v))
+    return () => {
+      alive = false
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mode, compareKey])
+
+  useEffect(() => {
+    const map = mapRef.current
+    if (!map || !ready) return
+    const planLayers = ['route-out', 'route-out-casing', 'route-ret', 'route-ret-casing', 'day-glow']
+    for (const id of [...planLayers, 'chargers']) map.setLayoutProperty(id, 'visibility', mode === 'plan' ? 'visible' : 'none')
+    CMP_COLORS.forEach((_, i) => {
+      const r = mode === 'compare' ? cmp[i] : undefined
+      for (const id of [`cmp-${i}`, `cmp-${i}-casing`]) map.setLayoutProperty(id, 'visibility', r ? 'visible' : 'none')
+      ;(map.getSource(`cmp-${i}`) as GeoJSONSource).setData(r && r.coords.length > 1 ? { type: 'FeatureCollection', features: [{ type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: r.coords } }] } : emptyFC())
+    })
+    if (mode === 'compare') {
+      const all = cmp.flatMap((r) => r.coords)
+      if (all.length) {
+        const b = all.reduce((bb, c) => bb.extend(c), new maplibregl.LngLatBounds(all[0], all[0]))
+        map.fitBounds(b, { padding: { top: 120, bottom: 50, left: 40, right: 60 }, duration: reduced ? 0 : 1000, pitch: 20 })
+      }
+    }
+  }, [mode, cmp, ready, reduced])
+
   // ——— chargers
   useEffect(() => {
     const map = mapRef.current
@@ -238,12 +323,41 @@ export function MapSection({ model }: { model: TripModel }) {
     })
   }, [chargers, days, ready, showChargers])
 
-  // ——— overnight + highlight markers
+  // ——— overnight + highlight markers (labelled)
   useEffect(() => {
     const map = mapRef.current
     if (!map || !ready) return
     markersRef.current.forEach((m) => m.remove())
     markersRef.current = []
+    // avoid double labels: skip highlights sitting on an overnight stop or on another highlight
+    const taken: LngLat[] = []
+    const near = (p: LngLat, m: number) => taken.some((t) => fastDist(t, p) < m)
+    const addHighlight = (id: string, color?: string) => {
+      const x = ALL_HIGHLIGHTS[id]
+      if (!x || near([x.lon, x.lat], 2500)) return
+      taken.push([x.lon, x.lat])
+      const el = document.createElement('div')
+      el.className = 'mk-hlw'
+      el.innerHTML = `<button type="button" class="mk-hl" aria-label="${x.name}" style="--c:${CAT_COLOR[x.category]}${color ? `;border-color:${color}` : ''}"></button><span class="mk-hl__label">${x.name}</span>`
+      const popup = new maplibregl.Popup({ offset: 12, maxWidth: '280px' }).setHTML(`<div class="pop"><strong>${x.name}</strong><p>${x.desc}</p></div>`)
+      markersRef.current.push(new maplibregl.Marker({ element: el, anchor: 'left', offset: [-7, 0] }).setLngLat([x.lon, x.lat]).setPopup(popup).addTo(map))
+    }
+    if (mode === 'compare') {
+      cmp.forEach((r, i) => {
+        const color = CMP_COLORS[i]
+        r.stops.forEach((p, k) => {
+          taken.push([p.lon, p.lat])
+          const el = document.createElement('div')
+          el.className = 'mk-night mk-night--cmp'
+          el.style.setProperty('--c', color)
+          el.innerHTML = `<span>${k + 1}</span><em>${p.name.replace(/ \(.*\)/, '')}</em>`
+          el.setAttribute('aria-label', `Route ${ROUTE_BY_ID[r.rid].num}, stop ${k + 1}: ${p.name}`)
+          markersRef.current.push(new maplibregl.Marker({ element: el, anchor: 'bottom' }).setLngLat([p.lon, p.lat]).addTo(map))
+        })
+      })
+      cmp.forEach((r, i) => r.highlights.forEach((id) => addHighlight(id, CMP_COLORS[i])))
+      return
+    }
     const nightMarkers = new Map<string, { lat: number; lon: number; name: string; nights: number[]; dir: string }>()
     model.plan.nights.forEach((n, i) => {
       if (!n.place) return
@@ -252,6 +366,7 @@ export function MapSection({ model }: { model: TripModel }) {
       else nightMarkers.set(n.place.id, { lat: n.place.lat, lon: n.place.lon, name: n.place.name, nights: [i + 1], dir: n.kind })
     })
     for (const m of nightMarkers.values()) {
+      taken.push([m.lon, m.lat])
       const el = document.createElement('div')
       el.className = `mk-night mk-night--${m.dir}`
       el.innerHTML = `<span>${m.nights.length > 1 ? `${m.nights[0]}–${m.nights[m.nights.length - 1]}` : m.nights[0]}</span><em>${m.name.replace(/ \(.*\)/, '')}</em>`
@@ -262,20 +377,9 @@ export function MapSection({ model }: { model: TripModel }) {
     for (const d of model.plan.days) for (const h of d.highlights) {
       if (seen.has(h.id)) continue
       seen.add(h.id)
-      const x = ALL_HIGHLIGHTS[h.id]
-      if (!x) continue
-      const el = document.createElement('button')
-      el.type = 'button'
-      el.className = 'mk-hl'
-      el.style.setProperty('--c', CAT_COLOR[x.category])
-      el.setAttribute('aria-label', x.name)
-      el.title = x.name
-      const popup = new maplibregl.Popup({ offset: 12, maxWidth: '280px' }).setHTML(
-        `<div class="pop"><strong>${x.name}</strong><p>${x.desc}</p></div>`,
-      )
-      markersRef.current.push(new maplibregl.Marker({ element: el }).setLngLat([x.lon, x.lat]).setPopup(popup).addTo(map))
+      addHighlight(h.id)
     }
-  }, [model.plan, ready])
+  }, [model.plan, ready, mode, cmp])
 
   // ——— selected day
   useEffect(() => {
@@ -500,6 +604,21 @@ export function MapSection({ model }: { model: TripModel }) {
         <div ref={box} className="map" aria-label="Interactive map of the trip" role="region" />
         {mapError && <p className="map__error">Map could not start (WebGL unavailable?): {mapError}</p>}
         <div className="map__panel">
+          <div className="seg seg--small map__mode" role="radiogroup" aria-label="What the map shows">
+            <button type="button" role="radio" aria-checked={mode === 'plan'} className={mode === 'plan' ? 'is-on' : ''} onClick={() => setMode('plan')}>Your plan</button>
+            <button type="button" role="radio" aria-checked={mode === 'compare'} className={mode === 'compare' ? 'is-on' : ''} onClick={() => { stopFly(); setDay(null); setMode('compare') }}>
+              Routes you're comparing
+            </button>
+          </div>
+          {mode === 'compare' && (
+            <div className="map__legend">
+              {compareIds.map((id, i) => (
+                <span key={id} className="legend-chip"><i style={{ background: CMP_COLORS[i] }} /> R{ROUTE_BY_ID[id].num} {ROUTE_BY_ID[id].short}</span>
+              ))}
+              <span className="muted">Numbers are overnight stops. Change routes at the top of the page.</span>
+            </div>
+          )}
+          {mode === 'plan' && <>
           <div className="daychips" role="tablist" aria-label="Choose a day">
             <button type="button" role="tab" aria-selected={selDay == null} className={selDay == null ? 'is-on' : ''} onClick={() => { stopFly(); setDay(null) }}>
               Whole trip
@@ -547,6 +666,7 @@ export function MapSection({ model }: { model: TripModel }) {
             <label className="toggle"><input type="checkbox" checked={showChargers} onChange={(e) => setShowChargers(e.target.checked)} /> Superchargers</label>
             <label className="toggle"><input type="checkbox" checked={terrain} onChange={(e) => setTerrain(e.target.checked)} /> 3D terrain</label>
           </div>
+          </>}
         </div>
 
         <AnimatePresence>

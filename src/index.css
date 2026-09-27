@@ -2974,3 +2974,61 @@ main > section + section {
     font-size: 15px;
   }
 }
+
+/* ——— Map: labelled highlights, compare mode ——— */
+.mk-hlw {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+.mk-hl__label {
+  display: none;
+  font: 600 11px/1.2 var(--sans);
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.92);
+  padding: 2px 6px;
+  border-radius: 5px;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  pointer-events: none;
+}
+.mapbox.z-labels .mk-hl__label {
+  display: inline-block;
+}
+.mk-night--cmp span {
+  background: var(--c) !important;
+}
+.mapbox.z-low .mk-night--cmp em {
+  display: inline-block;
+}
+.map__mode {
+  max-width: max-content;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow);
+}
+.map__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  padding: 7px 12px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  max-width: max-content;
+  font-size: 13px;
+}
+.legend-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+}
+.legend-chip i {
+  width: 22px;
+  height: 5px;
+  border-radius: 3px;
+}

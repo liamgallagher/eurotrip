@@ -104,7 +104,7 @@ export function computeDay(
   base.ascent = ls.reduce((a, l) => a + l.ascent, 0)
   base.maxEle = Math.max(...ls.map((l) => l.maxEle))
   for (const l of ls) {
-    for (const [cc, a, b] of l.countries) base.kmByCountry[cc] = (base.kmByCountry[cc] ?? 0) + (b - a)
+    for (const [cc, a, b] of l.countries) if (cc !== '??') base.kmByCountry[cc] = (base.kmByCountry[cc] ?? 0) + (b - a)
     for (const [name, ref, km, start, cls = ''] of l.roads) {
       const cc = countryAt(l, start)
       if (cls.includes('m') || isMotorway(cc, ref, name)) base.motorwayKmByCountry[cc] = (base.motorwayKmByCountry[cc] ?? 0) + km
@@ -173,7 +173,7 @@ export function totals(plan: Plan, days: DayStats[]): TripTotals {
     ascent: drive.reduce((a, d) => a + d.ascent, 0),
     nightsByCountry,
     kmByCountry,
-    passThrough: Object.keys(kmByCountry).filter((cc) => !nightsByCountry[cc] && kmByCountry[cc] >= 1),
+    passThrough: Object.keys(kmByCountry).filter((cc) => cc !== 'GB' && !nightsByCountry[cc] && kmByCountry[cc] >= 1),
     ready: days.every((d) => d.ready),
   }
 }

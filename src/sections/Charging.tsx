@@ -7,7 +7,7 @@ import type { DayStats } from '../lib/tripStats'
 import { CAR } from '../lib/energy'
 import { SectionHead, SourceLinks, Estimate } from '../ui/bits'
 import { fmtAgo, fmtDate, fmtH, fmtKm } from '../ui/format'
-import { OUT_COLOR, RET_COLOR } from './MapSection'
+import { OUT_COLOR, RET_COLOR } from '../ui/colors'
 
 export function SocSpark({ d, height = 64 }: { d: DayStats; height?: number }) {
   const ref = useRef<HTMLDivElement>(null)

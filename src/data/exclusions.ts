@@ -10,7 +10,7 @@ const ADAC = { label: 'ADAC – Alpine pass winter closures', url: 'https://www.
 export const EXCLUSIONS: Exclusion[] = [
   // Your exclusions
   { id: 'x-paris', name: 'Paris (overnight)', kind: 'place', userExclusion: true, reason: 'Already visited — no overnight stop. Routes may still pass around it on the périphérique/A86.', sources: [], lastChecked: LAST_CHECKED },
-  { id: 'x-luxembourg', name: 'Luxembourg (overnight)', kind: 'place', userExclusion: true, reason: 'Already visited — no overnight stop. Routes 3 and 7 transit the country (cheap motorway, no toll).', sources: [], lastChecked: LAST_CHECKED },
+  { id: 'x-luxembourg', name: 'Luxembourg (overnight)', kind: 'place', userExclusion: true, reason: 'Already visited — no overnight stop. Route 7 (Bruges ↔ Colmar) crosses it on the motorway for ~34 km; nothing else goes through it.', sources: [], lastChecked: LAST_CHECKED },
   {
     id: 'x-stelvio', name: 'Stelvio Pass', kind: 'pass', userExclusion: true,
     reason: 'Usually shut in May: 2,757 m with snow walls; opening is typically around late May–June.',

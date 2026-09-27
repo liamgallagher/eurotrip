@@ -1,7 +1,7 @@
 import { test, expect } from './fixtures'
 import { readFileSync } from 'node:fs'
 
-const shot = (name: string, project: string) => `test-results/screens/${project}-${name}.png`
+const shot = (name: string, project: string) => `screenshots/${project}-${name}.png`
 
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => localStorage.clear())
@@ -44,8 +44,11 @@ test("what you'd miss shows only unique highlights", async ({ page }) => {
   const all = await page.locator('.hcard').count()
   await page.getByRole('radio', { name: "What you'd miss" }).click()
   await expect.poll(() => page.locator('.hcard').count()).toBeLessThan(all)
-  expect(await page.locator('.also').count()).toBe(0)
-  await expect(page.locator('.ribbon').first()).toHaveText('Only here')
+  // every card in this view is unique to one of the selected routes
+  const cards = await page.locator('.hcard').count()
+  await expect(page.locator('.ribbon')).toHaveCount(cards)
+  const selected = (await page.locator('.rhead__num').allTextContents()).map((t) => `R${t.match(/Route (\d)/)![1]}`)
+  for (const t of await page.locator('.also').allTextContents()) for (const r of selected) expect(t).not.toContain(r)
 })
 
 test('category filter limits rows', async ({ page, isMobile }) => {

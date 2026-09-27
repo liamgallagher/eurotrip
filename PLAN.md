@@ -1,6 +1,6 @@
-# Eurotrip planner — build plan (awaiting go-ahead)
+# Eurotrip planner — build plan (approved and implemented)
 
-Southampton ↔ Ljubljana road-trip planner, May 2027. This is the pre-build plan. No app code has been written yet.
+Southampton ↔ Ljubljana road-trip planner, May 2027. This is the pre-build plan, kept for reference; it has since been implemented (see README.md). Decisions after review: Portsmouth–Caen ferry, Route 7 added, GitHub Pages hosting.
 
 ## 1. Architecture
 

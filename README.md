@@ -20,10 +20,10 @@ Node 20+ is required (22 recommended).
 ```bash
 npm test                         # unit tests (energy model, planner, scoring, exports, share links)
 npx playwright install chromium  # first time only
-npm run e2e                      # end-to-end tests + screenshots in test-results/screens
+npm run e2e                      # end-to-end tests + screenshots in screenshots/
 ```
 
-The end-to-end suite runs at desktop (1440×900) and phone (Pixel 7) sizes. Every run saves screenshots to `test-results/screens/`.
+The end-to-end suite runs at desktop (1440×900) and phone (Pixel 7) sizes. Every run saves screenshots to `screenshots/`.
 
 ## Deploying to GitHub Pages
 

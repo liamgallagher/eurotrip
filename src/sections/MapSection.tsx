@@ -12,13 +12,12 @@ import { fastDist } from '../lib/geo'
 import { CAT_COLOR, MayBadge, Photo, SectionHead } from '../ui/bits'
 import { fmtDate, fmtH, fmtKm } from '../ui/format'
 import { ElevationProfile } from './ElevationProfile'
+import { OUT_COLOR, RET_COLOR } from '../ui/colors'
 import type { DayStats } from '../lib/tripStats'
 
 maplibregl.setWorkerUrl(new URL(`${import.meta.env.BASE_URL}vendor/maplibre/maplibre-gl-worker.mjs`, window.location.href).href)
 
 const STYLE = (import.meta.env.VITE_MAP_STYLE as string | undefined) || 'https://tiles.openfreemap.org/styles/liberty'
-export const OUT_COLOR = '#1d6fc4'
-export const RET_COLOR = '#d9582b'
 
 const emptyFC = (): GeoJSON.FeatureCollection => ({ type: 'FeatureCollection', features: [] })
 
@@ -96,6 +95,9 @@ export function MapSection({ model }: { model: TripModel }) {
     map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'top-right')
     map.addControl(new maplibregl.FullscreenControl(), 'top-right')
     map.on('error', (e) => console.warn('map error', e.error?.message))
+    const zoomClass = () => box.current?.parentElement?.classList.toggle('z-low', map.getZoom() < 6)
+    map.on('zoomend', zoomClass)
+    zoomClass()
     map.on('load', () => {
       const firstSymbol = map.getStyle().layers?.find((l) => l.type === 'symbol')?.id
       const dem = { type: 'raster-dem' as const, tiles: [TERRARIUM_URL], tileSize: 256, encoding: 'terrarium' as const, maxzoom: 14, attribution: '<a href="https://registry.opendata.aws/terrain-tiles/" target="_blank">Terrain: AWS Terrain Tiles</a>' }
@@ -112,7 +114,7 @@ export function MapSection({ model }: { model: TripModel }) {
         map.addLayer({ id, type: 'line', source: id, layout: { 'line-join': 'round', 'line-cap': 'round' }, paint: { 'line-width': ['interpolate', ['linear'], ['zoom'], 4, 2.2, 10, 5], 'line-gradient': gradient(color, 0) } })
       }
       map.addSource('day', { type: 'geojson', data: emptyFC() })
-      map.addLayer({ id: 'day-glow', type: 'line', source: 'day', layout: { 'line-join': 'round', 'line-cap': 'round' }, paint: { 'line-color': '#f2c14e', 'line-width': ['interpolate', ['linear'], ['zoom'], 4, 8, 10, 16], 'line-opacity': 0.55, 'line-blur': 2 } }, 'route-ret-casing')
+      map.addLayer({ id: 'day-glow', type: 'line', source: 'day', layout: { 'line-join': 'round', 'line-cap': 'round' }, paint: { 'line-color': '#f2c14e', 'line-width': ['interpolate', ['linear'], ['zoom'], 4, 8, 10, 16], 'line-opacity': 0.85, 'line-blur': 1.5 } }, 'route-ret-casing')
       map.addSource('chargers', { type: 'geojson', data: emptyFC() })
       map.addLayer({
         id: 'chargers', type: 'circle', source: 'chargers',

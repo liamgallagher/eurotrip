@@ -5,7 +5,7 @@ import { useTripState } from '../hooks'
 import { ROUTES, ROUTE_BY_ID } from '../data/routes'
 import type { Category, RouteDef } from '../data/types'
 import { ALL_HIGHLIGHTS, CATEGORIES, scoreRoutes, type RouteMetrics, type RouteScore } from '../lib/scoring'
-import { CAT_COLOR, CatIcon, MayBadge, Photo, ScenicDots, SectionHead } from '../ui/bits'
+import { CAT_COLOR, CatIcon, MayBadge, Photo, ScenicDots, SectionHead, SourceLinks } from '../ui/bits'
 import { fmtH, fmtKm, fmtM } from '../ui/format'
 
 type View = 'all' | 'miss' | 'shared'
@@ -281,6 +281,7 @@ function RouteHeader({ s, metrics, onUse, planOut, planRet, rank }: { s: RouteSc
 function HighlightCard({ id, optional, starred, alsoOn, uniqueInSelection }: { id: string; optional: boolean; starred: boolean; alsoOn: string[]; uniqueInSelection: boolean }) {
   const h = ALL_HIGHLIGHTS[id]
   const toggleStar = useTrip((s) => s.toggleStar)
+  const [open, setOpen] = useState(false)
   return (
     <motion.div className={`hcard ${starred ? 'is-starred' : ''}`} layout initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.25 }}>
       <div className="hcard__media">
@@ -291,12 +292,25 @@ function HighlightCard({ id, optional, starred, alsoOn, uniqueInSelection }: { i
         {uniqueInSelection && <span className="ribbon">Only here</span>}
       </div>
       <div className="hcard__body">
-        <h4 className="hcard__title">{h.name}</h4>
+        <h4 className="hcard__title">
+          {h.name}
+          <button type="button" className="info" aria-expanded={open} aria-label={`Details and sources for ${h.name}`} onClick={() => setOpen((o) => !o)}>
+            i
+          </button>
+        </h4>
         <p className="hcard__desc">{h.desc}</p>
         <div className="hcard__meta">
           <ScenicDots v={h.scenic} />
           <MayBadge may={h.may} title={h.mayNote} />
         </div>
+        {open && (
+          <div className="hcard__more">
+            {h.mayNote && <p><b>May:</b> {h.mayNote}</p>}
+            {h.tip && <p><b>Tip:</b> {h.tip}</p>}
+            <p className="muted">Scenic score {h.scenic}/10 (editorial)</p>
+            <SourceLinks sources={h.sources} checked={h.lastChecked} />
+          </div>
+        )}
         {(optional || alsoOn.length > 0) && (
           <p className="hcard__foot">
             {optional && <span className="tag">optional detour</span>}

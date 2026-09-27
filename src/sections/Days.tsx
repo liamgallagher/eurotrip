@@ -3,7 +3,6 @@ import { useMemo, useState } from 'react'
 import { getHome, setHome, useUi } from '../store'
 import type { TripModel } from '../hooks'
 import { ALL_HIGHLIGHTS } from '../lib/scoring'
-import { BASE_TRIPS } from '../data/highlights'
 import { dayLinks, overviewLinks, toGpx, toKml, download, GMAPS_MAX_WAYPOINTS } from '../lib/export'
 import { Photo, SectionHead, Estimate } from '../ui/bits'
 import { fmtDateLong, fmtH, fmtKm } from '../ui/format'
@@ -17,8 +16,6 @@ export function Days({ model }: { model: TripModel }) {
   const [mobileLinks, setMobileLinks] = useState(false)
   const max = mobileLinks ? 3 : GMAPS_MAX_WAYPOINTS
   const overview = useMemo(() => overviewLinks(plan, { home: home || undefined }), [plan, home])
-  const baseIdx = days.filter((d) => d.day.kind === 'base')
-  let baseCounter = 0
 
   return (
     <section className="days" id="days" aria-labelledby="days-title">
@@ -57,7 +54,6 @@ export function Days({ model }: { model: TripModel }) {
           {days.map((d, i) => {
             const dy = d.day
             const isBase = dy.kind === 'base'
-            const trip = isBase ? BASE_TRIPS[baseCounter++ % BASE_TRIPS.length] : null
             const links = dayLinks(dy, { home: home || undefined, max })
             const totalH = d.driveH + d.crossingH + (d.charging?.chargeMinutes ?? 0) / 60
             const dirClass = dy.dir === 'base' ? 'base' : dy.dir
@@ -70,7 +66,7 @@ export function Days({ model }: { model: TripModel }) {
                 </div>
                 <div className="tday__body">
                   <h3 className="tday__title">
-                    {isBase ? `Slovenia: ${trip!.title}` : dy.kind === 'rest' ? dy.title : `${dy.from.name.replace(/ \(.*\)/, '')} → ${dy.to.name.replace(/ \(.*\)/, '')}`}
+                    {isBase ? 'In Slovenia' : dy.kind === 'rest' ? dy.title : `${dy.from.name.replace(/ \(.*\)/, '')} → ${dy.to.name.replace(/ \(.*\)/, '')}`}
                   </h3>
                   {!isBase && dy.kind === 'drive' && dy.title && <p className="tday__sub">{dy.title}</p>}
                   {dy.kind === 'ferry-night' && <p className="tday__sub">{dy.title}</p>}
@@ -88,9 +84,9 @@ export function Days({ model }: { model: TripModel }) {
                   )}
                   {!d.ready && dy.segments.some((s) => s.kind === 'drive') && <p className="loading">Routing…</p>}
 
-                  {(isBase ? trip!.highlights.map((id) => ({ id, optional: false })) : dy.highlights).length > 0 && (
+                  {!isBase && dy.highlights.length > 0 && (
                     <ul className="thl">
-                      {(isBase ? trip!.highlights.map((id) => ({ id, optional: false })) : dy.highlights).map((h) => {
+                      {dy.highlights.map((h) => {
                         const x = ALL_HIGHLIGHTS[h.id]
                         if (!x) return null
                         return (
@@ -102,7 +98,7 @@ export function Days({ model }: { model: TripModel }) {
                       })}
                     </ul>
                   )}
-                  {isBase && <p className="tday__note">{trip!.km} · {trip!.note}{baseIdx.length ? '' : ''}</p>}
+                  {isBase && <p className="tday__note">Staying in Ljubljana. No driving planned.</p>}
 
                   {d.charging && d.samples.length > 0 && <SocSpark d={d} />}
 

@@ -21,7 +21,8 @@
     "predev": "node scripts/copy-maplibre-worker.mjs",
     "prebuild": "node scripts/copy-maplibre-worker.mjs",
     "postinstall": "node scripts/copy-maplibre-worker.mjs",
-    "data:photos:download": "tsx scripts/download-photos.ts"
+    "data:photos:download": "tsx scripts/download-photos.ts",
+    "data:pexels": "tsx scripts/fetch-pexels.ts"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "^5.3.0",

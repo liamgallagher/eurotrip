@@ -99,7 +99,7 @@ export const VIGNETTES: Vignette[] = [
   {
     country: 'SI', name: 'Slovenian e-vinjeta',
     options: [{ label: '7-day', days: 7, eur: 16 }, { label: '1-month', days: 30, eur: 32 }],
-    note: 'Needed for Slovenian motorways (incl. the Ljubljana ring). A 1-month vignette covers the whole stay.',
+    note: 'Needed for Slovenian motorways on the way in and out (incl. the Ljubljana ring).',
     buyUrl: 'https://evinjeta.dars.si/',
     sources: [{ label: 'fuel-prices.eu – Slovenia', url: 'https://www.fuel-prices.eu/vignette/slovenia/' }],
   },

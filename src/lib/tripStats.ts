@@ -196,8 +196,6 @@ export function costs(plan: Plan, days: DayStats[], state: TripState): CostLine[
   // Vignettes: find dates with motorway use per vignette country
   for (const v of VIGNETTES) {
     const dates = days.filter((d) => (d.motorwayKmByCountry[v.country] ?? 0) > 0.5 || (v.country === 'SI' && d.countries.includes('SI'))).map((d) => d.day.date)
-    // Slovenia: include base days (Ljubljana ring / day trips)
-    if (v.country === 'SI') for (const d of days) if (d.day.kind === 'base') dates.push(d.day.date)
     if (!dates.length) continue
     const sorted = [...new Set(dates)].sort()
     const first = sorted[0], last = sorted[sorted.length - 1]

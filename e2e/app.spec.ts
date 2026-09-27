@@ -7,56 +7,45 @@ test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => localStorage.clear())
 })
 
-test('comparison board is the first thing you see', async ({ page }, info) => {
+
+
+
+
+
+test('large place photos are the first thing you see', async ({ page, isMobile }, info) => {
   await page.goto('/')
-  const board = page.locator('.board__grid')
-  await expect(board).toBeVisible()
-  const box = await board.boundingBox()
-  const vh = page.viewportSize()!.height
-  expect(box!.y).toBeLessThan(vh * (info.project.name === 'mobile' ? 0.95 : 0.6))
-  await expect(page.locator('.rhead')).toHaveCount(3)
-  await expect(page.locator('.hcard').first()).toBeVisible()
+  const gallery = page.locator('.gallery')
+  await expect(gallery).toBeVisible()
+  const box = await gallery.boundingBox()
+  expect(box!.y).toBeLessThan(page.viewportSize()!.height)
+  await expect(page.locator('.ghero')).toHaveCount(isMobile ? 1 : 2)
+  await expect(page.locator('.place').first()).toBeVisible()
+  // no sliders or scores any more
+  await expect(page.getByRole('slider')).toHaveCount(await page.locator('#charging input[type=range]').count())
   await page.screenshot({ path: shot('01-first-screen', info.project.name) })
 })
 
-test('priority sliders re-rank routes live', async ({ page, isMobile }) => {
+test('shortlisting a place shows on the route picker', async ({ page }) => {
   await page.goto('/')
-  if (isMobile) await page.getByRole('button', { name: /Priorities, filters/ }).click()
-  const order = () => page.locator('.rank .rank__num').allTextContents()
-  const before = (await order()).join()
-  const scenic = page.getByRole('slider', { name: /Scenic drives & landscapes weight/ })
-  await scenic.fill('0')
-  await page.getByRole('slider', { name: /Good towns for evenings weight/ }).fill('10')
-  await expect.poll(async () => (await order()).join()).not.toBe(before)
+  await page.getByRole('button', { name: 'Shortlist Neuschwanstein Castle' }).first().click()
+  await expect(page.getByRole('button', { name: 'Remove Neuschwanstein Castle from shortlist' }).first()).toBeVisible()
+  await expect(page.locator('.rpick').filter({ hasText: 'Romantic Road' }).locator('.rpick__hearts')).toContainText('♥ 1')
 })
 
-test('starring a highlight counts towards routes', async ({ page, isMobile }) => {
+test('picking routes and "only places the other route doesn\'t have"', async ({ page, isMobile }) => {
   await page.goto('/')
-  const star = page.getByRole('button', { name: /^Star Grossglockner High Alpine Road$/ }).first()
-  await star.click()
-  await expect(page.getByRole('button', { name: /^Unstar Grossglockner High Alpine Road$/ }).first()).toBeVisible()
-  if (isMobile) await page.getByRole('button', { name: /Priorities, filters/ }).click()
-  await expect(page.locator('.rank__stars').first()).toContainText('★1')
+  await page.locator('.rpick').filter({ hasText: 'Dolomites' }).first().click()
+  if (isMobile) await expect(page.getByRole('tab', { name: /Dolomites/ })).toBeVisible()
+  else await expect(page.locator('.ghero__title').filter({ hasText: 'Dolomites' })).toBeVisible()
+  const before = await page.locator('.place').count()
+  await page.getByLabel("Only places the other route doesn't have").check()
+  await expect.poll(() => page.locator('.place').count()).toBeLessThan(before)
 })
 
-test("what you'd miss shows only unique highlights", async ({ page }) => {
+test('every place links to more photos on Google', async ({ page }) => {
   await page.goto('/')
-  const all = await page.locator('.hcard').count()
-  await page.getByRole('radio', { name: "What you'd miss" }).click()
-  await expect.poll(() => page.locator('.hcard').count()).toBeLessThan(all)
-  // every card in this view is unique to one of the selected routes
-  const cards = await page.locator('.hcard').count()
-  await expect(page.locator('.ribbon')).toHaveCount(cards)
-  const selected = (await page.locator('.rhead__num').allTextContents()).map((t) => `R${t.match(/Route (\d)/)![1]}`)
-  for (const t of await page.locator('.also').allTextContents()) for (const r of selected) expect(t).not.toContain(r)
-})
-
-test('category filter limits rows', async ({ page, isMobile }) => {
-  await page.goto('/')
-  if (isMobile) await page.getByRole('button', { name: /Priorities, filters/ }).click()
-  await page.getByRole('button', { name: /Mountain passes/ }).click()
-  await expect(page.locator('.rowlabel')).toHaveCount(1)
-  await expect(page.locator('.rowlabel')).toContainText('Mountain passes')
+  const link = page.getByRole('link', { name: 'More photos ↗' }).first()
+  await expect(link).toHaveAttribute('href', /google\.com\/search\?tbm=isch/)
 })
 
 test('builder swaps a stop and recalculates, and flags the same route both ways', async ({ page }) => {
@@ -80,7 +69,7 @@ test('nights steppers keep the 14-night total visible', async ({ page }) => {
 
 test('share link restores the plan', async ({ page, context }) => {
   await page.goto('/')
-  await page.getByRole('button', { name: /^Star Venice$/ }).first().click()
+  await page.getByRole('button', { name: 'Shortlist Neuschwanstein Castle' }).first().click()
   await page.getByRole('combobox', { name: 'Return route' }).selectOption('r4')
   await page.waitForTimeout(400)
   const url = page.url()
@@ -89,7 +78,7 @@ test('share link restores the plan', async ({ page, context }) => {
   await p2.addInitScript(() => localStorage.clear())
   await p2.goto(url)
   await expect(p2.getByRole('combobox', { name: 'Return route' })).toHaveValue('r4')
-  await expect(p2.getByRole('button', { name: /^Unstar Venice$/ }).first()).toBeVisible()
+  await expect(p2.getByRole('button', { name: 'Remove Neuschwanstein Castle from shortlist' }).first()).toBeVisible()
 })
 
 test('Google Maps links respect the waypoint limit; GPX exports', async ({ page }) => {

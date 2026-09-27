@@ -48,6 +48,5 @@ export const CHECKLIST: CheckItem[] = [
   { id: 'crossing', group: 'Bookings', text: 'Eurotunnel (or Portsmouth–Caen ferry with cabin)' },
   { id: 'neuschwanstein', group: 'Bookings', text: 'Neuschwanstein timed tickets (Route 1)', sources: [{ label: 'Hohenschwangau ticket centre', url: 'https://www.hohenschwangau.de/en/visitor-information-2-2' }] },
   { id: 'venice-fee', group: 'Bookings', text: 'Venice: register for the access-fee exemption as an overnight guest; book mainland parking (Route 2)', sources: [{ label: 'cda.ve.it FAQ', url: 'https://cda.ve.it/en/faq' }] },
-  { id: 'vintgar', group: 'Bookings', text: 'Vintgar Gorge timed ticket (Slovenia)', sources: [{ label: 'vintgar.si', url: 'https://www.vintgar.si/en/my-visit/opening-hours/' }] },
   { id: 'dolomites-hotels', group: 'Bookings', text: 'Dolomites hotels: confirm they are open in mid-May (Routes 3 & 7)' },
 ]

@@ -2,6 +2,7 @@ import { useState, type ReactNode } from 'react'
 import type { Category, MayStatus } from '../data/types'
 import { MAY_LABEL } from '../lib/scoring'
 import photosJson from '../data/photos.json'
+import pexelsJson from '../data/pexels.json'
 
 export const CAT_COLOR: Record<Category, string> = {
   'scenic-road': '#2a78d6',
@@ -98,32 +99,96 @@ interface PhotoMeta {
   author: string
   license: string
 }
+interface PexelsMeta {
+  pexelsId: number
+  src: string
+  w: number
+  h: number
+  page: string
+  photographer: string
+  photographerUrl: string
+  color: string
+  alt: string
+}
 const PHOTOS = (photosJson as { photos: Record<string, PhotoMeta> }).photos
+const PEXELS = (pexelsJson as { photos: Record<string, PexelsMeta> }).photos
 
 export function photoFor(id: string): PhotoMeta | undefined {
   return PHOTOS[id]
 }
 
-/** Photos are served from a local 500px copy (public/photos) with the Wikimedia thumbnail as fallback. */
-export function Photo({ id, alt, className = '', category, eager = false }: { id: string; alt: string; sizes?: string; className?: string; category?: Category; eager?: boolean }) {
+interface Source {
+  src: string
+  srcSet?: string
+  w: number
+  h: number
+  credit: string
+  creditUrl: string
+  title: string
+  color?: string
+}
+
+/** Candidate image sources, best first: Pexels (professional, large) → Wikimedia HD → local 500px copy. */
+function sourcesFor(id: string, hd: boolean): Source[] {
+  const out: Source[] = []
+  const px = PEXELS[id]
+  if (px) {
+    const u = (w: number) => `${px.src}?auto=compress&cs=tinysrgb&w=${w}`
+    out.push({
+      src: u(hd ? 1600 : 800),
+      srcSet: hd ? `${u(800)} 800w, ${u(1280)} 1280w, ${u(1920)} 1920w, ${u(2560)} 2560w` : `${u(480)} 480w, ${u(800)} 800w, ${u(1200)} 1200w`,
+      w: px.w, h: px.h, credit: `${px.photographer} / Pexels`, creditUrl: px.page, title: `Photo by ${px.photographer} on Pexels`, color: px.color,
+    })
+  }
   const p = PHOTOS[id]
+  if (p) {
+    const credit = `${p.author.length > 28 ? p.author.slice(0, 26) + '…' : p.author} · ${p.license}`
+    const title = `${p.author} · ${p.license} · Wikimedia Commons`
+    const w1280 = p.src.replace('/960px-', '/1280px-')
+    const local = p.local ? `${import.meta.env.BASE_URL}${p.local}` : null
+    // small images come from our own 500px copy; large ones from Wikimedia at up to 1280px
+    if (!hd && local) out.push({ src: local, w: p.w, h: p.h, credit, creditUrl: p.page, title })
+    out.push({ src: hd ? w1280 : p.src, srcSet: `${local ?? p.src.replace('/960px-', '/500px-')} 500w, ${p.src} 960w, ${w1280} 1280w`, w: p.w, h: p.h, credit, creditUrl: p.page, title })
+    if (hd && local) out.push({ src: local, w: p.w, h: p.h, credit, creditUrl: p.page, title })
+  }
+  return out
+}
+
+/** Large, credited photo with graceful fallbacks. `hd` requests a large image (hero/gallery use). */
+export function Photo({ id, alt, className = '', category, eager = false, hd = false, sizes }: { id: string; alt: string; sizes?: string; className?: string; category?: Category; eager?: boolean; hd?: boolean }) {
   const [attempt, setAttempt] = useState(0)
-  const candidates = p ? [p.local ? `${import.meta.env.BASE_URL}${p.local}` : null, p.src.replace('/960px-', '/500px-')].filter(Boolean) as string[] : []
-  if (!p || attempt >= candidates.length) {
+  const cands = sourcesFor(id, hd)
+  const c = cands[attempt]
+  if (!c) {
     return (
-      <div className={`photo photo--empty ${className}`} style={{ ['--c' as string]: category ? CAT_COLOR[category] : '#8a8170' }} role="img" aria-label={p ? `${alt} (photo failed to load)` : `${alt} (no licensed photo found)`}>
+      <div className={`photo photo--empty ${className}`} style={{ ['--c' as string]: category ? CAT_COLOR[category] : '#8a8170' }} role="img" aria-label={`${alt} (no photo available)`}>
         {category && <CatIcon c={category} size={28} />}
       </div>
     )
   }
   return (
-    <figure className={`photo ${className}`}>
-      <img src={candidates[attempt]} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" width={p.w} height={p.h} onError={() => setAttempt((a) => a + 1)} />
+    <figure className={`photo ${className}`} style={c.color ? { background: c.color } : undefined}>
+      <img
+        key={c.src}
+        src={c.src}
+        srcSet={c.srcSet}
+        sizes={sizes ?? (hd ? '(max-width: 760px) 100vw, 900px' : '(max-width: 760px) 50vw, 320px')}
+        alt={alt}
+        loading={eager ? 'eager' : 'lazy'}
+        decoding="async"
+        width={c.w}
+        height={c.h}
+        onError={() => setAttempt((a) => a + 1)}
+      />
       <figcaption>
-        <a href={p.page} target="_blank" rel="noreferrer" title={`${p.author} · ${p.license} · Wikimedia Commons`}>
-          © {p.author.length > 28 ? p.author.slice(0, 26) + '…' : p.author} · {p.license}
+        <a href={c.creditUrl} target="_blank" rel="noreferrer" title={c.title}>
+          © {c.credit}
         </a>
       </figcaption>
     </figure>
   )
 }
+
+/** Opens Google Images for a place in a new tab (nothing is copied into the app). */
+export const googleImagesUrl = (q: string) => `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(q)}`
+export const googleMapsSearchUrl = (q: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`

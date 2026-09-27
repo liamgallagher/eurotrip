@@ -269,7 +269,7 @@ export function buildPlan(state: TripState): Plan {
   // Slovenia base
   const lj = FIXED.ljubljana
   for (let i = 1; i < state.sloveniaNights; i++) {
-    push({ dir: 'base', kind: 'base', defDays: [], title: 'Slovenia day', from: lj, to: lj, segments: [], highlights: [], notes: [], sleep: lj })
+    push({ dir: 'base', kind: 'base', defDays: [], title: 'In Slovenia', from: lj, to: lj, segments: [], highlights: [], notes: [], sleep: lj })
   }
 
   // Return

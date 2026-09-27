@@ -54,7 +54,7 @@ function chapters(r: RouteDef, options: Record<string, boolean>): Chapter[] {
     })
     const stop = r.stops[i]
     if (stop) PLACES[stop.default].highlights.forEach((id) => add(stops, { id, optional: false, overnight: true }))
-    const night = stop ? PLACES[stop.default].name.replace(/ \(.*\)/, '') : 'Ljubljana'
+    const night = stop ? PLACES[stop.default].name.replace(/ \(.*\)/, '') : 'Slovenia'
     return { title: `${d.title} → ${night}`, stops }
   })
 }

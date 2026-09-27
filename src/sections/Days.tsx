@@ -26,10 +26,10 @@ export function Days({ model }: { model: TripModel }) {
 
         <div className="export">
           <div className="export__row">
-            <button type="button" className="btn" onClick={() => download(`soton-ljubljana-${plan.days[0]?.date}.gpx`, toGpx(plan, legStatus.legs), 'application/gpx+xml')}>
+            <button type="button" className="btn" onClick={() => download(`soton-slovenia-${plan.days[0]?.date}.gpx`, toGpx(plan, legStatus.legs), 'application/gpx+xml')}>
               ⤓ GPX (whole trip)
             </button>
-            <button type="button" className="btn" onClick={() => download(`soton-ljubljana-${plan.days[0]?.date}.kml`, toKml(plan, legStatus.legs), 'application/vnd.google-earth.kml+xml')}>
+            <button type="button" className="btn" onClick={() => download(`soton-slovenia-${plan.days[0]?.date}.kml`, toKml(plan, legStatus.legs), 'application/vnd.google-earth.kml+xml')}>
               ⤓ KML (Google My Maps / Earth)
             </button>
             {overview.map((l) => (
@@ -98,7 +98,7 @@ export function Days({ model }: { model: TripModel }) {
                       })}
                     </ul>
                   )}
-                  {isBase && <p className="tday__note">Staying in Ljubljana. No driving planned.</p>}
+                  {isBase && <p className="tday__note">Somewhere in Slovenia. Plans to be decided; no driving scheduled here.</p>}
 
                   {d.charging && d.samples.length > 0 && <SocSpark d={d} />}
 

@@ -40,7 +40,7 @@ export function Masthead({ model }: { model: TripModel }) {
         <div className="wrap topbar__in">
           <a className="brand" href="#top">
             <span className="brand__mark" aria-hidden="true">⇄</span>
-            <span>Soton<span className="brand__x">×</span>Ljubljana</span>
+            <span>Soton<span className="brand__x">×</span>Slovenia</span>
           </a>
           <ul className="topbar__nav">
             {NAV.map(([id, l]) => (
@@ -64,7 +64,7 @@ export function Masthead({ model }: { model: TripModel }) {
             The drive <em>is</em> the holiday.
           </motion.h1>
           <motion.p className="hero__lede" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }}>
-            Southampton to Ljubljana and back in the Model 3 — one road there, a different road home. Choose them by what you'll see on the way.
+            Southampton to Slovenia and back in the Model 3 — one road there, a different road home. Choose them by what you'll see on the way.
           </motion.p>
           </div>
           <motion.div className="hero__plan" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>

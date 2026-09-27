@@ -17,6 +17,7 @@ export interface GLink {
 
 function placeString(w: Waypoint): string {
   const p = Object.values(PLACES).find((x) => x.name === w.name && Math.abs(x.lat - w.lat) < 1e-4 && Math.abs(x.lon - w.lon) < 1e-4)
+  if (p?.id === 'ljubljana') return 'Ljubljana, Slovenia'
   if (p && !/\(|port|terminal/i.test(p.name) && p.id !== 'venice') return `${p.name}, ${COUNTRY_NAMES[p.country] ?? ''}`.replace(/ \/ .*?,/, ',')
   return `${w.lat.toFixed(5)},${w.lon.toFixed(5)}`
 }
@@ -104,7 +105,7 @@ export function toGpx(plan: Plan, legs: Record<string, Leg | undefined>): string
       }
     })
   }
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<gpx version="1.1" creator="Southampton–Ljubljana planner" xmlns="http://www.topografix.com/GPX/1/1">\n<metadata><name>Southampton ⇄ Ljubljana ${plan.days[0]?.date ?? ''}</name></metadata>\n${wpts.join('\n')}\n${rtes.join('\n')}\n${trks.join('\n')}\n</gpx>\n`
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<gpx version="1.1" creator="Southampton–Slovenia planner" xmlns="http://www.topografix.com/GPX/1/1">\n<metadata><name>Southampton ⇄ Slovenia ${plan.days[0]?.date ?? ''}</name></metadata>\n${wpts.join('\n')}\n${rtes.join('\n')}\n${trks.join('\n')}\n</gpx>\n`
 }
 
 export function toKml(plan: Plan, legs: Record<string, Leg | undefined>): string {
@@ -122,7 +123,7 @@ export function toKml(plan: Plan, legs: Record<string, Leg | undefined>): string
       if (x) marks.push(`<Placemark><name>${esc(x.name)}</name><description>${esc(x.desc)}</description><styleUrl>#hl</styleUrl><Point><coordinates>${x.lon},${x.lat}</coordinates></Point></Placemark>`)
     }
   }
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document><name>Southampton ⇄ Ljubljana</name>
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document><name>Southampton ⇄ Slovenia</name>
 <Style id="out"><LineStyle><color>ff7a6a0f</color><width>5</width></LineStyle></Style>
 <Style id="ret"><LineStyle><color>ff2b56c2</color><width>5</width></LineStyle></Style>
 <Style id="night"><IconStyle><scale>1.1</scale></IconStyle></Style>

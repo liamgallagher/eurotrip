@@ -197,7 +197,7 @@ export const ROUTES: RouteDef[] = [
         highlights: ['miramare', 'trieste'],
         options: [
           { id: 'aquileia', label: 'Aquileia mosaics', detail: 'Roman site just off the motorway.', defaultOn: false, highlights: ['aquileia'] },
-          { id: 'skocjan', label: 'Škocjan Caves', detail: 'UNESCO cave on the way to Ljubljana.', defaultOn: true, highlights: ['skocjan'] },
+          { id: 'skocjan', label: 'Škocjan Caves', detail: 'UNESCO cave on the way into Slovenia.', defaultOn: true, highlights: ['skocjan'] },
         ],
       },
     ],

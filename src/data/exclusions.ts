@@ -95,7 +95,7 @@ export const EXCLUSIONS: Exclusion[] = [
     reinstate: { routeId: 'r2', dayIndex: 2, via: { name: 'Lauterbrunnen', lat: 46.5935, lon: 7.9091 }, highlight: 'lauterbrunnen', warning: 'Adds ~2 h to the Colmar–Lucerne day.' },
   },
   { id: 'x-cinqueterre', name: 'Cinque Terre', kind: 'place', reason: 'Too far off-line (~3–4 h from any route) and car-hostile.', sources: [wp('Cinque Terre')], lastChecked: LAST_CHECKED },
-  { id: 'x-plitvice', name: 'Plitvice Lakes (Croatia)', kind: 'place', reason: 'Great day out but ~2.5 h each way from Ljubljana; adds Croatian border time. Possible if you add a base night.', sources: [wp('Plitvice Lakes National Park')], lastChecked: LAST_CHECKED },
+  { id: 'x-plitvice', name: 'Plitvice Lakes (Croatia)', kind: 'place', reason: 'Great day out but ~2.5 h each way from central Slovenia; adds Croatian border time. Possible if you add a base night.', sources: [wp('Plitvice Lakes National Park')], lastChecked: LAST_CHECKED },
 ]
 
 /** Highlights that only appear if an exclusion is reinstated. */

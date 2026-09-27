@@ -87,7 +87,7 @@ export function Builder({ model }: { model: TripModel }) {
         </div>
 
         <p className="fine">
-          Routing: {sources.length - nLive - nCache} legs from the snapshot{nCache ? `, ${nCache} cached on this device` : ''}{nLive ? `, ${nLive} routed live` : ''}. OSRM times assume free-flowing traffic — add breaks.{' '}
+          Routing: {sources.length - nLive - nCache} legs from the snapshot{nCache ? `, ${nCache} cached on this device` : ''}{nLive ? `, ${nLive} routed live` : ''}. OSRM times assume free-flowing traffic, so add breaks. Drives into and out of Slovenia are measured to central Ljubljana, since where you're staying isn't decided yet.{' '}
           <button type="button" className="linkbtn" onClick={legStatus.refresh}>Recalculate all legs live now</button>
         </p>
       </div>
@@ -140,7 +140,7 @@ function DirectionPanel({ dir, model }: { dir: Direction; model: TripModel }) {
       <p className="fine">{CROSSINGS[cfg.crossing].note}</p>
 
       <ol className="legs">
-        {dir === 'ret' && <li className="legs__node legs__node--fixed">Ljubljana</li>}
+        {dir === 'ret' && <li className="legs__node legs__node--fixed">Slovenia</li>}
         {dir === 'out' && <li className="legs__node legs__node--fixed">{cfg.crossing === 'ferry' ? 'Southampton → Portsmouth → Caen' : 'Southampton → Folkestone → Calais'}</li>}
         {order.map((defIdx) => {
           const def = route.days[defIdx]
@@ -192,7 +192,7 @@ function DirectionPanel({ dir, model }: { dir: Direction; model: TripModel }) {
             </Fragment>
           )
         })}
-        {dir === 'out' && <li className="legs__node legs__node--fixed">Ljubljana · {state.sloveniaNights} nights</li>}
+        {dir === 'out' && <li className="legs__node legs__node--fixed">Slovenia · {state.sloveniaNights} nights</li>}
         {dir === 'ret' && <li className="legs__node legs__node--fixed">{cfg.crossing === 'ferry' ? 'Caen → Portsmouth → home' : 'Calais → Folkestone → home'}</li>}
       </ol>
     </div>

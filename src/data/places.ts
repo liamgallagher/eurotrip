@@ -11,7 +11,8 @@ export const FIXED = {
   calais: P({ id: 'calais', name: 'Calais (Coquelles)', country: 'FR', lat: 50.9315, lon: 1.8137, evening: 0, blurb: 'Le Shuttle terminal, Coquelles.', highlights: [] }),
   portsmouth: P({ id: 'portsmouth', name: 'Portsmouth ferry port', country: 'GB', lat: 50.8127, lon: -1.0907, evening: 0, blurb: 'Portsmouth International Port.', highlights: [] }),
   caen: P({ id: 'caen', name: 'Caen (Ouistreham)', country: 'FR', lat: 49.2839, lon: -0.2489, evening: 0, blurb: 'Brittany Ferries terminal, Ouistreham.', highlights: [] }),
-  ljubljana: P({ id: 'ljubljana', name: 'Ljubljana', country: 'SI', lat: 46.0511, lon: 14.5051, evening: 9, blurb: 'Your base for four nights, already sorted.', highlights: [] }),
+  // Where exactly in Slovenia is still open, so this point (central Ljubljana) is only used to measure the drive in and out.
+  ljubljana: P({ id: 'ljubljana', name: 'Slovenia', country: 'SI', lat: 46.0511, lon: 14.5051, evening: 9, blurb: 'Four nights in Slovenia: plans still to be decided.', highlights: [] }),
 } satisfies Record<string, Place>
 
 const list: Place[] = [

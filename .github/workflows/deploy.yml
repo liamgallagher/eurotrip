@@ -2,7 +2,7 @@ name: Test & deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, 'claude/zealous-goldberg-4nso7u']
   pull_request:
   workflow_dispatch:
 
@@ -32,7 +32,8 @@ jobs:
           path: dist
 
   deploy:
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    # deploy whatever the repository's default branch is (currently the claude/… branch; later main)
+    if: github.event_name != 'pull_request' && github.ref_name == github.event.repository.default_branch
     needs: build
     runs-on: ubuntu-latest
     environment:

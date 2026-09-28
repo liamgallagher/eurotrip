@@ -41,14 +41,14 @@ export function Stage({ children, onReady }: { children?: ReactNode; onReady?: (
   )
 }
 
-export function Anchor({ id, lon, lat, lift, maxDist, occlude, priority, className = '', children }: { id: string; lon: number; lat: number; lift?: number; maxDist?: number; occlude?: boolean; priority?: number; className?: string; children: ReactNode }) {
+export function Anchor({ id, lon, lat, lift, maxDist, minDist, occlude, priority, className = '', children }: { id: string; lon: number; lat: number; lift?: number; maxDist?: number; minDist?: number; occlude?: boolean; priority?: number; className?: string; children: ReactNode }) {
   const dio = useDio()
   const el = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
     if (!dio || !el.current) return
-    dio.setAnchor(id, { el: el.current, lon, lat, lift, maxDist, occlude, priority })
+    dio.setAnchor(id, { el: el.current, lon, lat, lift, maxDist, minDist, occlude, priority })
     return () => dio.removeAnchor(id)
-  }, [dio, id, lon, lat, lift, maxDist, occlude, priority])
+  }, [dio, id, lon, lat, lift, maxDist, minDist, occlude, priority])
   return (
     <div ref={el} className={`anchor ${className}`} style={{ visibility: 'hidden' }}>
       {children}

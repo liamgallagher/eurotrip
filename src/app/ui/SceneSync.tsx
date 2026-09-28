@@ -117,6 +117,17 @@ export function SceneSync({ pl, trip, legs, stats, options, optionLegs, driven, 
     dio?.setRibbonMode(ui.ribbon)
   }, [dio, ui.ribbon])
 
+  // a glow runs along the day you pick
+  useEffect(() => {
+    if (!dio || ui.day == null) return
+    const t = tracks.find((x) => x.id === `d${ui.day}`)
+    if (!t || t.points.length < 2) return
+    const a = t.kmOffset ?? 0
+    const id = setTimeout(() => dio.sweep(a, a + t.points[t.points.length - 1].km, 2600), 1500)
+    return () => clearTimeout(id)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dio, ui.day])
+
   // ——— pass gates: every Alpine pass we know, lit by its usual May status
   useEffect(() => {
     if (!dio) return
@@ -150,12 +161,15 @@ export function SceneSync({ pl, trip, legs, stats, options, optionLegs, driven, 
   useEffect(() => {
     if (!dio) return
     const want = ui.sunMin ?? sunTarget.min
-    const from = sunNow.current ?? want
+    // first time: a time-lapse from the small hours (city lights) into the afternoon
+    const first = sunNow.current == null && !matchMedia('(prefers-reduced-motion: reduce)').matches
+    const from = sunNow.current ?? (first ? 3 * 60 + 40 : want)
+    const ms = first ? 6500 : 1400
     const t0 = performance.now()
     let raf = 0
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
     const step = () => {
-      const t = reduce ? 1 : Math.min(1, (performance.now() - t0) / 1400)
+      const t = reduce ? 1 : Math.min(1, (performance.now() - t0) / ms)
       const e = t < 0.5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2
       const m = from + (want - from) * e
       sunNow.current = m
@@ -192,7 +206,8 @@ export function SceneSync({ pl, trip, legs, stats, options, optionLegs, driven, 
         return
       }
       if (ui.panel === 'options' || (!trip && ui.day == null)) {
-        await dio.flyTo(narrow ? { ...OVERVIEW, lat: OVERVIEW.lat - 3.5, dist: 3000 } : OVERVIEW, 1800)
+        const pts = options?.flatMap((o) => [...o.out.days, ...o.ret.days].map((d) => PLACES[d.to])) ?? []
+        await dio.flyTo(pts.length ? viewFor(pts, aspect, { tilt: 38, pad: 1.15, left, bottom, min: 600 }) : narrow ? { ...OVERVIEW, lat: OVERVIEW.lat - 3.5, dist: 3000 } : OVERVIEW, 1800)
         return
       }
       if (ui.panel === 'candidates' && ui.cand && sugg) {
@@ -218,7 +233,7 @@ export function SceneSync({ pl, trip, legs, stats, options, optionLegs, driven, 
     }
     run()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dio, ui.panel, ui.day, ui.cand, !!trip, !!sugg])
+  }, [dio, ui.panel, ui.day, ui.cand, !!trip, !!sugg, !!options])
 
   // focus: quiet the land away from where you're choosing
   useEffect(() => {

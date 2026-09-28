@@ -6,6 +6,7 @@ import { dayLegKey } from './engine/planner'
 import { Stage } from './ui/Stage'
 import { SceneSync } from './ui/SceneSync'
 import { Pins } from './ui/Pins'
+import { Lettering } from './ui/Lettering'
 import { DayStrip, SunDial, TopBar } from './ui/Chrome'
 import { Options, useTripOptions } from './ui/Options'
 import { DayCard } from './ui/DayCard'
@@ -83,7 +84,7 @@ export default function App() {
       case 'options':
         return <Options options={options} />
       case 'day':
-        return trip ? <DayCard pl={pl} trip={trip} stats={stats?.days ?? null} /> : null
+        return trip ? <DayCard pl={pl} trip={trip} stats={stats?.days ?? null} legs={legs} /> : null
       case 'candidates':
         return <Candidates pl={pl} />
       case 'discover':
@@ -108,6 +109,7 @@ export default function App() {
       {ui.view === '3d' && (
         <Stage>
           <SceneSync pl={pl} trip={trip} legs={legs} stats={stats?.days ?? null} options={options} optionLegs={optionLegs} driven={journal.driven} drivenVersion={journal.version} />
+          <Lettering />
           <Pins pl={pl} trip={trip} stats={stats?.days ?? null} />
         </Stage>
       )}

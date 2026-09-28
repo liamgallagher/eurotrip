@@ -34,8 +34,8 @@ page.on('pageerror', (e) => console.log('pageerror:', e.message))
 const q = new URLSearchParams()
 if (view) q.set('view', view)
 if (t) q.set('t', t)
-await page.goto(`http://127.0.0.1:5199${path}?${q}`)
-await page.waitForFunction(() => document.body.dataset.ready === '1', null, { timeout: 120000 }).catch(() => console.log('not ready'))
+await page.goto(`${process.env.BASE ?? "http://127.0.0.1:5199"}${path}?${q}`)
+await page.waitForFunction(() => document.body.dataset.ready === '1' || !!document.querySelector('.optlist li'), null, { timeout: 120000 }).catch(() => console.log('not ready'))
 const t0 = Date.now()
 await page.waitForTimeout(1500)
 await page.evaluate(() => { const d = (window as unknown as { __dio?: { animateAlways: boolean } }).__dio; if (d) d.animateAlways = true })
@@ -51,6 +51,7 @@ for (const step of (process.env.STEPS ?? '').split(';').filter(Boolean)) {
   if (kind === 'click') await page.click(arg)
   if (kind === 'wait') await page.waitForTimeout(Number(arg))
   if (kind === 'eval') await page.evaluate(arg)
+  if (kind === 'upload') { const [sel, file] = arg.split('|'); await page.setInputFiles(sel, file) }
 }
 if (process.env.STEPS) {
   let calm2 = 0

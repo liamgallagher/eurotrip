@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 import { PLACES, FIXED } from '../../data/places'
 import { ALL_HIGHLIGHTS } from '../../lib/scoring'
@@ -10,6 +10,7 @@ import type { Trip } from '../engine/trip'
 import { useApp } from '../store'
 import { OUT, RET, shortName, useSuggestions, whoLoves, dur, clock } from './common'
 import { breakName } from './DayCard'
+import { photoUrl, useJournal, type Note } from '../journal'
 
 // HTML pins pinned to the terrain: tonight's stops, candidate stops, highlights, charging breaks.
 
@@ -55,8 +56,11 @@ export function Pins({ pl, trip, stats }: { pl: Planner | null; trip: Trip | nul
   const charges = selStats?.charging?.stops ?? []
   const breakAt = (km: number, i: number) => plan.settings.departMin + (km / Math.max(1, selStats?.km ?? 1)) * (selStats?.driveH ?? 0) * 60 + i * 25
 
+  const journal = useJournal()
+
   return (
     <>
+      {ui.panel !== 'options' && journal.notes.map((n) => <NotePin key={n.id} n={n} />)}
       {ui.panel !== 'options' &&
         stops
           .filter((s) => ui.panel !== 'candidates' || s.dir === ui.cand?.dir)
@@ -130,5 +134,20 @@ export function Pins({ pl, trip, stats }: { pl: Planner | null; trip: Trip | nul
         </Anchor>
       ))}
     </>
+  )
+}
+
+function NotePin({ n }: { n: Note }) {
+  const [url, setUrl] = useState<string | null>(null)
+  useEffect(() => {
+    if (n.photo) photoUrl(n.photo).then(setUrl)
+  }, [n.photo])
+  return (
+    <Anchor id={`note-${n.id}`} lon={n.lon} lat={n.lat} lift={30} priority={6} maxDist={1500}>
+      <div className={`pin pin--note ${url ? 'has-photo' : ''}`} title={n.text}>
+        {url ? <img src={url} alt="" /> : <span className="pin__dot">✎</span>}
+        {n.text && <span className="pin__label">{n.text.slice(0, 40)}</span>}
+      </div>
+    </Anchor>
   )
 }

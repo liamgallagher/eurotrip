@@ -13,7 +13,7 @@ test.beforeEach(async ({ page }) => {
 
 
 test('large place photos are the first thing you see', async ({ page, isMobile }, info) => {
-  await page.goto('/')
+  await page.goto('/classic.html')
   const gallery = page.locator('.gallery')
   await expect(gallery).toBeVisible()
   const box = await gallery.boundingBox()
@@ -26,14 +26,14 @@ test('large place photos are the first thing you see', async ({ page, isMobile }
 })
 
 test('shortlisting a place shows on the route picker', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/classic.html')
   await page.getByRole('button', { name: 'Shortlist Neuschwanstein Castle' }).first().click()
   await expect(page.getByRole('button', { name: 'Remove Neuschwanstein Castle from shortlist' }).first()).toBeVisible()
   await expect(page.locator('.rpick').filter({ hasText: 'Romantic Road' }).locator('.rpick__hearts')).toContainText('♥ 1')
 })
 
 test('picking routes and "only places the other route doesn\'t have"', async ({ page, isMobile }) => {
-  await page.goto('/')
+  await page.goto('/classic.html')
   await page.locator('.rpick').filter({ hasText: 'Dolomites' }).first().click()
   if (isMobile) await expect(page.getByRole('tab', { name: /Dolomites/ })).toBeVisible()
   else await expect(page.locator('.ghero__title').filter({ hasText: 'Dolomites' })).toBeVisible()
@@ -43,13 +43,13 @@ test('picking routes and "only places the other route doesn\'t have"', async ({ 
 })
 
 test('every place links to more photos on Google', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/classic.html')
   const link = page.getByRole('link', { name: 'More photos ↗' }).first()
   await expect(link).toHaveAttribute('href', /google\.com\/search\?tbm=isch/)
 })
 
 test('builder swaps a stop and recalculates, and flags the same route both ways', async ({ page }) => {
-  await page.goto('/#plan')
+  await page.goto('/classic.html#plan')
   const total = page.locator('.stat').filter({ hasText: 'Total driving' }).locator('.stat__value')
   await expect(total).toHaveText(/\d[\d,]* km/, { timeout: 30_000 })
   const before = await total.textContent()
@@ -60,7 +60,7 @@ test('builder swaps a stop and recalculates, and flags the same route both ways'
 })
 
 test('nights steppers keep the 14-night total visible', async ({ page }) => {
-  await page.goto('/#plan')
+  await page.goto('/classic.html#plan')
   await expect(page.locator('.total')).toContainText('14')
   await page.getByRole('button', { name: 'Fewer Slovenia nights' }).click()
   await expect(page.locator('.total')).toContainText('13')
@@ -68,7 +68,7 @@ test('nights steppers keep the 14-night total visible', async ({ page }) => {
 })
 
 test('share link restores the plan', async ({ page, context }) => {
-  await page.goto('/')
+  await page.goto('/classic.html')
   await page.getByRole('button', { name: 'Shortlist Neuschwanstein Castle' }).first().click()
   await page.getByRole('combobox', { name: 'Return route' }).selectOption('r4')
   await page.waitForTimeout(400)
@@ -82,7 +82,7 @@ test('share link restores the plan', async ({ page, context }) => {
 })
 
 test('Google Maps links respect the waypoint limit; GPX exports', async ({ page }) => {
-  await page.goto('/#days')
+  await page.goto('/classic.html#days')
   const links = page.locator('a.glink[href^="https://www.google.com/maps/dir/"]')
   await expect(links.first()).toBeVisible()
   const hrefs = await links.evaluateAll((as) => as.map((a) => (a as HTMLAnchorElement).href))
@@ -100,7 +100,7 @@ test('Google Maps links respect the waypoint limit; GPX exports', async ({ page 
 })
 
 test('map renders with terrain and a day profile', async ({ page }, info) => {
-  await page.goto('/#map')
+  await page.goto('/classic.html#map')
   const canvas = page.locator('.map canvas')
   await expect(canvas).toBeVisible({ timeout: 30_000 })
   await page.getByRole('tab', { name: 'D6' }).click()
@@ -112,12 +112,12 @@ test('map renders with terrain and a day profile', async ({ page }, info) => {
 
 test('respects reduced motion', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' })
-  await page.goto('/#map')
+  await page.goto('/classic.html#map')
   await expect(page.getByRole('button', { name: /Step through/ })).toBeVisible({ timeout: 30_000 })
 })
 
 test('considered-but-excluded list can reinstate a pass with a warning', async ({ page }) => {
-  await page.goto('/#excluded')
+  await page.goto('/classic.html#excluded')
   const card = page.locator('.xcard').filter({ hasText: 'Stelvio Pass' })
   await expect(card).toContainText('Usually shut in May')
   await card.getByRole('checkbox').check()
@@ -125,7 +125,7 @@ test('considered-but-excluded list can reinstate a pass with a warning', async (
 })
 
 test('full-page screenshots', async ({ page }, info) => {
-  await page.goto('/')
+  await page.goto('/classic.html')
   await page.waitForTimeout(1500)
   // make lazy content render
   for (const id of ['plan', 'map', 'days', 'charging', 'costs', 'checklist', 'excluded']) {
@@ -143,7 +143,7 @@ test('full-page screenshots', async ({ page }, info) => {
 
 test('fly-through runs smoothly and can be zoomed while playing', async ({ page, isMobile }) => {
   test.skip(isMobile, 'covered on desktop; same code path')
-  await page.goto('/#map')
+  await page.goto('/classic.html#map')
   await expect(page.locator('.map canvas')).toBeVisible({ timeout: 30_000 })
   await page.getByRole('tab', { name: 'D2', exact: true }).click()
   await page.getByRole('button', { name: /Fly day 2/ }).click()

@@ -41,6 +41,8 @@ export interface Anchor {
   lift?: number
   /** hide when the camera is further than this (km) */
   maxDist?: number
+  /** hide when the camera is closer than this (km) */
+  minDist?: number
   /** hide when a mountain is in the way */
   occlude?: boolean
   /** higher keeps its label when pins crowd together */
@@ -141,7 +143,7 @@ export class Diorama {
       uTime: { value: 0 },
       uNight: { value: null },
       uHFTexel: { value: new THREE.Vector2(1, 1) },
-      uSnowline: { value: 2200 },
+      uSnowline: { value: 2350 },
       uSteps: { value: 24 },
       uFocus: { value: new THREE.Vector4(0, 0, 1, 0) },
     }
@@ -184,6 +186,32 @@ export class Diorama {
       this.smaa = new EffectPass(this.camera, new SMAAEffect())
       this.composer.addPass(this.smaa)
     }
+
+    // while flying, the wheel / a pinch changes how close the chase camera sits
+    this.canvas.addEventListener(
+      'wheel',
+      (e) => {
+        if (!this.follow) return
+        e.preventDefault()
+        this.zoomFly(e.deltaY > 0 ? 1.12 : 0.89)
+      },
+      { passive: false },
+    )
+    const touches = new Map<number, [number, number]>()
+    let pinch = 0
+    this.canvas.addEventListener('pointerdown', (e) => touches.set(e.pointerId, [e.clientX, e.clientY]))
+    this.canvas.addEventListener('pointerup', (e) => touches.delete(e.pointerId))
+    this.canvas.addEventListener('pointercancel', (e) => touches.delete(e.pointerId))
+    this.canvas.addEventListener('pointermove', (e) => {
+      if (!touches.has(e.pointerId)) return
+      touches.set(e.pointerId, [e.clientX, e.clientY])
+      if (!this.follow || touches.size !== 2) return
+      const [a, b] = [...touches.values()]
+      const d = Math.hypot(a[0] - b[0], a[1] - b[1])
+      if (pinch) this.zoomFly(pinch / d)
+      pinch = d
+    })
+    this.canvas.addEventListener('pointerup', () => (pinch = 0))
 
     this.resizeObs = new ResizeObserver(() => this.resize())
     this.resizeObs.observe(container)
@@ -324,6 +352,20 @@ export class Diorama {
     step()
   }
 
+  /** A glow that travels along the ribbons from one km mark to another (e.g. the chosen day). */
+  sweep(fromKm: number, toKm: number, ms: number) {
+    if (!this.ribbons || matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const u = this.ribbons.uniforms.uSweep
+    const t0 = performance.now()
+    const step = () => {
+      const t = Math.min(1, (performance.now() - t0) / ms)
+      u.value = t >= 1 ? -1 : fromKm + (toKm - fromKm) * easeInOut(t)
+      this.poke(200)
+      if (t < 1 && !this.disposed) requestAnimationFrame(step)
+    }
+    step()
+  }
+
   setGates(list: { id: string; lon: number; lat: number; ele?: number; status: Gate['status'] }[]) {
     this.gates?.set(
       list.map((g) => {
@@ -372,7 +414,7 @@ export class Diorama {
       v.set(x, heightUnits(a.h + (a.lift ?? 0), a.lat) * exag, z)
       const world = v.clone()
       v.project(this.camera)
-      let vis = v.z < 1 && v.z > -1 && Math.abs(v.x) < 1.15 && Math.abs(v.y) < 1.15 && (!a.maxDist || camDist <= a.maxDist)
+      let vis = v.z < 1 && v.z > -1 && Math.abs(v.x) < 1.15 && Math.abs(v.y) < 1.15 && (!a.maxDist || camDist <= a.maxDist) && (!a.minDist || camDist >= a.minDist)
       if (vis && a.occlude && this.rasters) vis = !this.occluded(world)
       if (vis !== a.vis) {
         a.el.style.visibility = vis ? 'visible' : 'hidden'
@@ -480,8 +522,7 @@ export class Diorama {
     return new Promise((resolve) => {
       if (this.follow) this.follow.resolve()
       this.follow = { path, km: path[0]?.km ?? 0, speed: opts.kmPerSec ?? 60, dist: opts.dist ?? 28, onKm: opts.onKm, headingS: this.getView().heading, resolve }
-      this.controls.enableRotate = false
-      this.controls.enablePan = false
+      this.controls.enabled = false
       this.poke(1e9)
     })
   }
@@ -504,8 +545,7 @@ export class Diorama {
     if (!this.follow) return
     const f = this.follow
     this.follow = null
-    this.controls.enableRotate = true
-    this.controls.enablePan = true
+    this.controls.enabled = true
     this.activeUntil = performance.now() + 1500
     f.resolve()
   }

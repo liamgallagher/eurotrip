@@ -140,14 +140,17 @@ void main() {
   // May snow: typical snowline, lower on north-facing slopes, never on cliffs
   float north = clamp(-n.z / max(0.2, length(n.xz)), -1.0, 1.0) * smoothstep(0.03, 0.2, slopeTrue);
   float jitter = (fbm(vWorld.xz * 1.7) - 0.5) * 360.0;
-  float line = uSnowline - north * 260.0 + jitter;
+  float line = uSnowline - north * 330.0 + jitter;
   float snow = smoothstep(line - 150.0, line + 250.0, vH) * (1.0 - smoothstep(0.5, 0.95, slopeTrue)) * (1.0 - water);
   // keep the photo's texture (rock ribs, glaciers) showing through the snow
   vec3 snowCol = vec3(0.78, 0.82, 0.88) * (0.7 + 0.6 * smoothstep(0.02, 0.35, l0));
-  albedo = mix(albedo, snowCol, snow * 0.62);
+  albedo = mix(albedo, snowCol, snow * 0.5);
 
-  // lighting
+  // lighting (plus soft shadows of passing fair-weather clouds)
   float sh = shadowAt(vWorld, L, vS);
+  vec2 cp = (vWorld.xz + L.xz / max(L.y, 0.15) * 2.0) * 0.045 + vec2(uTime * 0.012, uTime * 0.004);
+  float cloud = smoothstep(0.58, 0.8, fbm(cp)) * 0.32 * (1.0 - smoothstep(250.0, 700.0, length(cameraPosition - vWorld)));
+  sh *= 1.0 - cloud;
   float ndl = max(dot(n, L), 0.0);
   float avg = hfHLod(vSuv, 3.5);
   float ao = clamp(1.0 - max(0.0, avg - vH) / 900.0, 0.55, 1.0);
@@ -331,6 +334,7 @@ uniform float uDraw;      // km drawn so far (intro animation)
 uniform float uXray;      // 1 for the occluded pass
 uniform float uOpacity;
 uniform float uPulse;
+uniform float uSweep;     // km position of a travelling glow (selected day), < 0 = off
 in float vSide;
 in float vAlong;
 in vec4 vColor;
@@ -355,13 +359,14 @@ void main() {
   vec3 c = vColor.rgb;
   if (uMode == 1) c = socColor(vSoc);
   else if (uMode == 2) c = gradeColor(vGrade);
-  if (vDriven > 0.5) c = vec3(1.0, 0.78, 0.32);
+  if (vDriven > 0.5) c = vec3(1.0, 0.74, 0.16);
   // flowing light in the direction of travel
   float pulse = pow(fract(vAlong / 40.0 - uTime * 0.18), 10.0) * uPulse;
   // the drawing head glows
   float head = smoothstep(uDraw - 25.0, uDraw, vAlong) * step(uDraw, 1e5 - 1.0);
-  vec3 col = c * (1.25 + pulse * 2.5 + head * 3.0) + vec3(1.0) * smoothstep(0.45, 0.0, edge) * 0.55;
-  if (vDriven > 0.5) col *= 1.5 + 0.4 * sin(vAlong * 0.4 - uTime * 3.0);
+  float sweep = uSweep >= 0.0 ? exp(-abs(vAlong - uSweep) / 4.0) + 0.35 * smoothstep(uSweep, uSweep - 60.0, vAlong) * step(vAlong, uSweep) : 0.0;
+  vec3 col = c * (1.25 + pulse * 2.5 + head * 3.0 + sweep * 2.2) + vec3(1.0) * smoothstep(0.45, 0.0, edge) * (0.55 + sweep);
+  if (vDriven > 0.5) col = c * (1.6 + 0.6 * pow(max(0.0, sin(vAlong * 0.9 - uTime * 2.4)), 8.0)) + vec3(1.0, 0.9, 0.6) * smoothstep(0.35, 0.0, edge) * 0.4;
   float a = core * vColor.a * uOpacity;
   if (uXray > 0.5 || vTunnel > 0.5) {
     float dash = step(0.5, fract(vAlong / 1.2));

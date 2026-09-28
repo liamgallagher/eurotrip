@@ -65,6 +65,13 @@ export function TopBar({ trip, totals }: { trip: Trip | null; totals: { km: numb
         <button type="button" onClick={share} aria-label="Share this plan">
           <Icon d={ICONS.share} /> <span className="only-menu">Share</span>
         </button>
+        <div className="seg seg--small only-menu-flex" role="radiogroup" aria-label="View">
+          {views.map(([v, label, d]) => (
+            <button key={v} type="button" role="radio" aria-checked={view === v} className={view === v ? 'is-on' : ''} onClick={() => { set({ view: v }); setMenu(false) }}>
+              <Icon d={d} size={16} /> {label}
+            </button>
+          ))}
+        </div>
       </nav>
       <div className="topbar__right">
         <div className="who" role="radiogroup" aria-label="Who is choosing">

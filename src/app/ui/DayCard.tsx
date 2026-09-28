@@ -10,6 +10,10 @@ import { sunTimes } from '../scene/sun'
 import { arrivalMin, dayKey, estCharges, type Planner } from '../engine/planner'
 import { setDayPrefs, setNights, toggleFirm, type Trip } from '../engine/trip'
 import { useApp } from '../store'
+import { useDio } from './Stage'
+import { localDate } from '../scene/sun'
+import type { Leg } from '../../lib/legs'
+import { useState } from 'react'
 import { clock, dur, flag, Hearts, hName, Icon, ICONS, placeName, placePhoto } from './common'
 
 // One day, in full: the drive, the breaks, the sights, the fallback and tonight's bed.
@@ -22,7 +26,13 @@ export function bookingUrl(place: string, date: string) {
   return `https://www.booking.com/searchresults.en-gb.html?${q}`
 }
 
-export function DayCard({ pl, trip, stats }: { pl: Planner | null; trip: Trip; stats: DayStats[] | null }) {
+function path0Km(d: Trip['days'][number], legs: Record<string, Leg>) {
+  return d.segments.reduce((a, sg) => a + (sg.kind === 'drive' && legs[sg.key!] ? legs[sg.key!].distance / 1000 : 0), 0)
+}
+
+export function DayCard({ pl, trip, stats, legs }: { pl: Planner | null; trip: Trip; stats: DayStats[] | null; legs: Record<string, Leg> }) {
+  const dio = useDio()
+  const [flying, setFlying] = useState(false)
   const n = useApp((s) => s.day)
   const plan = useApp((s) => s.plan)
   const setPlan = useApp((s) => s.setPlan)
@@ -97,6 +107,55 @@ export function DayCard({ pl, trip, stats }: { pl: Planner | null; trip: Trip; s
       {st?.warnings.map((w, i) => <p key={i} className="warn">⚠ {w}</p>)}
       {st?.peaks.map((p, i) => <p key={i} className="warn warn--soft">🚗 {p}</p>)}
       {st?.holidays.map((h, i) => <p key={i} className="warn warn--soft">🎌 {h.name} ({h.cc}) — shops shut, roads busy</p>)}
+
+      {e && dio && (
+        <div className="flyrow">
+          <button
+            type="button"
+            className="btn btn--ghost"
+            onClick={async () => {
+              if (flying) {
+                dio.stopFly()
+                return
+              }
+              const path: { lon: number; lat: number; ele: number; km: number }[] = []
+              let off = 0
+              for (const sg of d.segments) {
+                const leg = sg.kind === 'drive' ? legs[sg.key!] : undefined
+                if (!leg) continue
+                for (const p of leg.samples) path.push({ lon: p.lon, lat: p.lat, ele: p.ele, km: p.km + off })
+                off += leg.distance / 1000
+              }
+              if (path.length < 2) return
+              setFlying(true)
+              const dep = plan.settings.departMin
+              const arr = arrive ?? dep + 300
+              const total = path[path.length - 1].km
+              await dio.flyAlong(path, {
+                kmPerSec: total / 45,
+                dist: 22,
+                onKm: (km) => {
+                  const p = path.find((x) => x.km >= km) ?? path[path.length - 1]
+                  dio.setSun(localDate(d.date, dep + ((arr - dep) * km) / total), { lon: p.lon, lat: p.lat })
+                },
+              })
+              setFlying(false)
+              set({ sunMin: null })
+            }}
+          >
+            <Icon d={flying ? ICONS.pause : ICONS.play} size={16} /> {flying ? 'Stop' : 'Fly this day'}
+          </button>
+          {flying && (
+            <span className="seg seg--small">
+              {[0.5, 1, 2].map((k) => (
+                <button key={k} type="button" onClick={() => dio.setFlySpeed((path0Km(d, legs) / 45) * k)}>
+                  {k}×
+                </button>
+              ))}
+            </span>
+          )}
+        </div>
+      )}
 
       {e && ways.length > 1 && (
         <div className="ways" role="radiogroup" aria-label="Which way">

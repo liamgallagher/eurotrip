@@ -179,6 +179,14 @@ function CostsTab({ stats }: Props) {
   )
 }
 
+function Item({ ok, children }: { ok: boolean; children: React.ReactNode }) {
+  return (
+    <li className={ok ? 'ok' : 'todo'}>
+      <span aria-hidden="true">{ok ? '✓' : '!'}</span> <span>{children}</span>
+    </li>
+  )
+}
+
 function Checks({ trip, stats }: Props) {
   const plan = useApp((s) => s.plan)
   const set = useApp((s) => s.ui)
@@ -193,7 +201,6 @@ function Checks({ trip, stats }: Props) {
   const season = stays.filter((id) => (PLACES[id].notes ?? []).some((n) => /close|season|between/i.test(n)))
   const zones = stays.filter((id) => (PLACES[id].notes ?? []).some((n) => /ZFE|Umweltzone|ZTL|LEZ|Area C|congestion/i.test(n)))
   const firm = [...plan.out.stops, ...plan.ret.stops].filter((s) => s.firm).length
-  const Item = ({ ok, children }: { ok: boolean; children: React.ReactNode }) => <li className={ok ? 'ok' : 'todo'}><span aria-hidden="true">{ok ? '✓' : '!'}</span> <span>{children}</span></li>
   return (
     <div className="checks">
       <ul className="checklist">

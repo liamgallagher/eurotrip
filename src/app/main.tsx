@@ -4,10 +4,11 @@ import '@fontsource-variable/fraunces'
 import '@fontsource-variable/inter'
 import './app.css'
 import App from './App'
-import { useApp } from './store'
+import { shareUrl, useApp } from './store'
 
 // handy for debugging and the screenshot scripts
-;(window as unknown as { __app: typeof useApp }).__app = useApp
+;(window as unknown as { __app: typeof useApp; __shareUrl: typeof shareUrl }).__app = useApp
+;(window as unknown as { __shareUrl: typeof shareUrl }).__shareUrl = shareUrl
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

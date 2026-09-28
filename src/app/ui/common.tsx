@@ -7,7 +7,7 @@ import { suggest, type Suggestion } from '../engine/trip'
 import type { PathResult } from '../engine/planner'
 import { useApp } from '../store'
 
-export const OUT = '#ffb347'
+export const OUT = '#ff8a5c'
 export const RET = '#5ee7ff'
 export const GOLD = '#ffcf5a'
 export const OPTION_COLORS = ['#ffd166', '#f472b6', '#34d399']

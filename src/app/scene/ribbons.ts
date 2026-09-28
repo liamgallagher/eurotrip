@@ -40,6 +40,7 @@ export class Ribbons {
     uMode: THREE.IUniform<number>
     uDraw: THREE.IUniform<number>
     uPulse: THREE.IUniform<number>
+    uSweep: THREE.IUniform<number>
   }
 
   constructor(shared: Record<string, THREE.IUniform>) {
@@ -50,6 +51,7 @@ export class Ribbons {
       uMode: { value: 0 },
       uDraw: { value: 1e5 },
       uPulse: { value: 1 },
+      uSweep: { value: -1 },
     }
     this.group.renderOrder = 10
   }

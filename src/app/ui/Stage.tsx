@@ -1,10 +1,20 @@
-import { createContext, useContext, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore, type ReactNode } from 'react'
 import { Diorama, type View } from '../scene/Diorama'
 
-// The 3D stage: owns the Diorama and lets children pin HTML to places on the terrain.
+// The 3D stage: owns the Diorama and lets anything in the app (pins, panels) reach it.
 
-export const DioCtx = createContext<Diorama | null>(null)
-export const useDio = () => useContext(DioCtx)
+let current: Diorama | null = null
+const listeners = new Set<() => void>()
+function setCurrent(d: Diorama | null) {
+  current = d
+  listeners.forEach((l) => l())
+}
+const subscribe = (l: () => void) => {
+  listeners.add(l)
+  return () => listeners.delete(l)
+}
+/** The live 3D scene, or null in the 2D / list views. */
+export const useDio = () => useSyncExternalStore(subscribe, () => current)
 
 declare global {
   interface Window {
@@ -26,17 +36,19 @@ export function Stage({ children, onReady }: { children?: ReactNode; onReady?: (
     }
     window.__dio = d
     setDio(d)
+    setCurrent(d)
     d.ready.then(() => onReady?.(d)).catch(() => setFailed(true))
-    return () => d.dispose()
+    return () => {
+      setCurrent(null)
+      d.dispose()
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <div className="stage">
       <div className="stage__gl" ref={ref} />
       {failed && <p className="stage__fail">3D isn’t available on this device — switch to the 2D map or the list.</p>}
-      <DioCtx.Provider value={dio}>
-        <div className="stage__pins">{dio && children}</div>
-      </DioCtx.Provider>
+      <div className="stage__pins">{dio && children}</div>
     </div>
   )
 }

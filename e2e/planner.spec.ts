@@ -27,6 +27,13 @@ test('a day card shows the drive, the breaks and tonight’s stop; a stop can be
   await expect(card.locator('.facts')).toContainText('At the wheel')
   await expect(card.getByRole('heading', { name: /Tonight:/ })).toBeVisible()
   await expect(card.getByRole('link', { name: /Booking.com/ })).toHaveAttribute('href', /booking\.com.*checkin=/)
+  // follow the route
+  const fly = card.getByRole('button', { name: 'Fly this day' })
+  await expect(fly).toBeEnabled({ timeout: 30_000 })
+  await fly.click()
+  await expect(card.getByRole('button', { name: 'Stop', exact: true })).toBeVisible()
+  expect(await page.evaluate(() => (window as unknown as { __dio: { flying: boolean } }).__dio.flying)).toBe(true)
+  await card.getByRole('button', { name: 'Stop', exact: true }).click()
   await card.getByRole('button', { name: /Change tonight’s stop/ }).click()
   const cards = page.locator('.ccard')
   await expect(cards.first()).toBeVisible({ timeout: 30_000 })

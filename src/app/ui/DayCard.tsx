@@ -113,6 +113,7 @@ export function DayCard({ pl, trip, stats, legs }: { pl: Planner | null; trip: T
           <button
             type="button"
             className="btn btn--ghost"
+            disabled={!flying && path0Km(d, legs) === 0}
             onClick={async () => {
               if (flying) {
                 dio.stopFly()
@@ -143,7 +144,7 @@ export function DayCard({ pl, trip, stats, legs }: { pl: Planner | null; trip: T
               set({ sunMin: null })
             }}
           >
-            <Icon d={flying ? ICONS.pause : ICONS.play} size={16} /> {flying ? 'Stop' : 'Fly this day'}
+            <Icon d={flying ? ICONS.pause : ICONS.play} size={16} /> {flying ? 'Stop' : path0Km(d, legs) > 0 ? 'Fly this day' : 'Loading the road…'}
           </button>
           {flying && (
             <span className="seg seg--small">

@@ -6,7 +6,8 @@ import { dayLegKey } from './engine/planner'
 import { Stage } from './ui/Stage'
 import { SceneSync } from './ui/SceneSync'
 import { Pins } from './ui/Pins'
-import { Lettering } from './ui/Lettering'
+import { Gazetteer, Lettering } from './ui/Lettering'
+import { FlightHUD } from './ui/FlightHUD'
 import { TripFlight } from './ui/TripFlight'
 import { DayStrip, SunDial, TopBar } from './ui/Chrome'
 import { Options, useTripOptions } from './ui/Options'
@@ -111,6 +112,7 @@ export default function App() {
         <Stage>
           <SceneSync pl={pl} trip={trip} legs={legs} stats={stats?.days ?? null} options={options} optionLegs={optionLegs} driven={journal.driven} drivenVersion={journal.version} />
           <Lettering />
+          <Gazetteer />
           <Pins pl={pl} trip={trip} stats={stats?.days ?? null} />
         </Stage>
       )}
@@ -148,6 +150,7 @@ export default function App() {
         </div>
       )}
       {trip && <DayStrip trip={trip} />}
+      {ui.view === '3d' && <FlightHUD />}
       {!pl && <div className="loading">Loading Europe…</div>}
       {ui.toast && (
         <div className="toast" role="status">

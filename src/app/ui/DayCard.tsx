@@ -11,9 +11,9 @@ import { arrivalMin, dayKey, estCharges, type Planner } from '../engine/planner'
 import { setDayPrefs, setNights, toggleFirm, type Trip } from '../engine/trip'
 import { useApp } from '../store'
 import { useDio } from './Stage'
-import { localDate } from '../scene/sun'
+import { startFlight } from '../flight'
+import { tripPath } from '../tripPath'
 import type { Leg } from '../../lib/legs'
-import { useState } from 'react'
 import { clock, dur, flag, Hearts, hName, Icon, ICONS, placeName, placePhoto } from './common'
 
 // One day, in full: the drive, the breaks, the sights, the fallback and tonight's bed.
@@ -32,7 +32,6 @@ function path0Km(d: Trip['days'][number], legs: Record<string, Leg>) {
 
 export function DayCard({ pl, trip, stats, legs }: { pl: Planner | null; trip: Trip; stats: DayStats[] | null; legs: Record<string, Leg> }) {
   const dio = useDio()
-  const [flying, setFlying] = useState(false)
   const n = useApp((s) => s.day)
   const plan = useApp((s) => s.plan)
   const setPlan = useApp((s) => s.setPlan)
@@ -113,48 +112,11 @@ export function DayCard({ pl, trip, stats, legs }: { pl: Planner | null; trip: T
           <button
             type="button"
             className="btn btn--ghost"
-            disabled={!flying && path0Km(d, legs) === 0}
-            onClick={async () => {
-              if (flying) {
-                dio.stopFly()
-                return
-              }
-              const path: { lon: number; lat: number; ele: number; km: number }[] = []
-              let off = 0
-              for (const sg of d.segments) {
-                const leg = sg.kind === 'drive' ? legs[sg.key!] : undefined
-                if (!leg) continue
-                for (const p of leg.samples) path.push({ lon: p.lon, lat: p.lat, ele: p.ele, km: p.km + off })
-                off += leg.distance / 1000
-              }
-              if (path.length < 2) return
-              setFlying(true)
-              const dep = plan.settings.departMin
-              const arr = arrive ?? dep + 300
-              const total = path[path.length - 1].km
-              await dio.flyAlong(path, {
-                kmPerSec: total / 45,
-                dist: 22,
-                onKm: (km) => {
-                  const p = path.find((x) => x.km >= km) ?? path[path.length - 1]
-                  dio.setSun(localDate(d.date, dep + ((arr - dep) * km) / total), { lon: p.lon, lat: p.lat })
-                },
-              })
-              setFlying(false)
-              set({ sunMin: null })
-            }}
+            disabled={path0Km(d, legs) === 0}
+            onClick={() => startFlight(dio, tripPath(trip, legs, plan.settings, { days: [d.n] }), { kind: 'day', seconds: 45, dist: 22 })}
           >
-            <Icon d={flying ? ICONS.pause : ICONS.play} size={16} /> {flying ? 'Stop' : path0Km(d, legs) > 0 ? 'Fly this day' : 'Loading the road…'}
+            <Icon d={ICONS.play} size={16} /> {path0Km(d, legs) > 0 ? 'Fly this day' : 'Loading the road…'}
           </button>
-          {flying && (
-            <span className="seg seg--small">
-              {[0.5, 1, 2].map((k) => (
-                <button key={k} type="button" onClick={() => dio.setFlySpeed((path0Km(d, legs) / 45) * k)}>
-                  {k}×
-                </button>
-              ))}
-            </span>
-          )}
         </div>
       )}
 

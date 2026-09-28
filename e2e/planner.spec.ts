@@ -42,12 +42,10 @@ test('a day card shows the drive, the breaks and tonight’s stop; a stop can be
   await expect(page.locator('.daycard h2')).toContainText(name.split(' ')[0])
 })
 
-test('Liam and Tatiana each have their own hearts', async ({ page }) => {
+test('Liam and Tatiana each have their own hearts', async ({ page, isMobile }) => {
   await chooseFirstTrip(page)
-  await page.getByRole('button', { name: /Must-sees/ }).first().click().catch(async () => {
-    await page.getByRole('button', { name: 'Menu' }).click()
-    await page.getByRole('button', { name: /Must-sees/ }).click()
-  })
+  if (isMobile) await page.getByRole('button', { name: 'Menu' }).click()
+  await page.getByRole('button', { name: /Must-sees/ }).click()
   const first = page.locator('.gcard').first()
   await first.getByRole('button', { name: /^Liam heart/ }).click()
   await first.getByRole('button', { name: /^Tatiana heart/ }).click()

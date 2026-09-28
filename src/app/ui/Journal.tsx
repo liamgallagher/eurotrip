@@ -4,6 +4,7 @@ import type { Trip } from '../engine/trip'
 import { addNote, addPoints, clearTrack, parseGpx, photoUrl, removeNote, startRecording, stopRecording, useJournal, type Note } from '../journal'
 import { filmSupported, makeFilm } from '../film'
 import { useDio } from './Stage'
+import { useApp } from '../store'
 import { Icon, ICONS } from './common'
 
 // "Our drive": the ribbon turns gold where you've actually been; notes and photos stay where they happened.
@@ -46,7 +47,7 @@ export default function Journal({ trip, legs }: { trip: Trip; legs: Record<strin
     if (!dio) return
     cancel.current = { cancelled: false }
     setFilm({ progress: 0 })
-    const blob = await makeFilm(dio, trip, legs, { seconds: 90, notes: j.notes, onProgress: (p) => setFilm((f) => ({ ...f, progress: p })), signal: cancel.current })
+    const blob = await makeFilm(dio, trip, legs, { seconds: 90, notes: j.notes, settings: useApp.getState().plan.settings, onProgress: (p) => setFilm((f) => ({ ...f, progress: p })), signal: cancel.current })
     if (!blob) return setFilm(null)
     setFilm({ progress: 1, url: URL.createObjectURL(blob), ext: blob.type.includes('mp4') ? 'mp4' : 'webm' })
   }

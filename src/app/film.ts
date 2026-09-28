@@ -1,11 +1,13 @@
 import type { Leg } from '../lib/legs'
-import type { Diorama, PathPoint } from './scene/Diorama'
+import type { Diorama } from './scene/Diorama'
 import { localDate } from './scene/sun'
 import type { Trip } from './engine/trip'
 import type { Note } from './journal'
 import { photoUrl } from './journal'
 import { fmtDateLong } from '../ui/format'
 import { fastDist } from '../lib/geo'
+import { tripPath } from './tripPath'
+import type { Settings } from './engine/planner'
 
 // A fly-over film of the whole trip, recorded straight from the 3D canvas (MediaRecorder), with day
 // captions and your own photos popping up where you took them.
@@ -14,6 +16,7 @@ export interface FilmOpts {
   seconds: number
   notes: Note[]
   onProgress: (f: number) => void
+  settings: Settings
   signal: { cancelled: boolean }
 }
 
@@ -22,26 +25,7 @@ export function filmSupported() {
 }
 
 export async function makeFilm(dio: Diorama, trip: Trip, legs: Record<string, Leg>, o: FilmOpts): Promise<Blob | null> {
-  // one continuous path through every driving day
-  const path: PathPoint[] = []
-  const marks: { km: number; title: string; date: string; dep: number; arr: number; lon: number; lat: number }[] = []
-  let off = 0
-  for (const d of trip.days) {
-    if (d.kind !== 'drive') continue
-    const startKm = off
-    for (const s of d.segments) {
-      if (s.kind !== 'drive') continue
-      const leg = legs[s.key!]
-      if (!leg) continue
-      for (let i = 0; i < leg.samples.length; i += 2) {
-        const p = leg.samples[i]
-        path.push({ lon: p.lon, lat: p.lat, ele: p.ele, km: off + p.km })
-      }
-      off += leg.distance / 1000
-    }
-    const last = path[path.length - 1]
-    if (last) marks.push({ km: startKm, title: d.title, date: d.date, dep: 9 * 60 + 30, arr: 9 * 60 + 30 + (d.e?.min ?? 300) + 90, lon: last.lon, lat: last.lat })
-  }
+  const { path, marks } = tripPath(trip, legs, o.settings)
   if (path.length < 2) return null
 
   const src = dio.canvas

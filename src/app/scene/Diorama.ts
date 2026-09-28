@@ -499,6 +499,8 @@ export class Diorama {
   }
 
   flyTo(to: Partial<View> & { lon: number; lat: number }, ms = 1800): Promise<void> {
+    // a chase flight owns the camera until it ends
+    if (this.follow) return Promise.resolve()
     const from = this.getView()
     const target: View = { dist: from.dist, tilt: from.tilt, heading: from.heading, ...to }
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -521,10 +523,21 @@ export class Diorama {
   flyAlong(path: PathPoint[], opts: { kmPerSec?: number; dist?: number; onKm?: (km: number) => boolean | void } = {}): Promise<void> {
     return new Promise((resolve) => {
       if (this.follow) this.follow.resolve()
+      if (this.anim) {
+        this.anim.resolve()
+        this.anim = null
+      }
       this.follow = { path, km: path[0]?.km ?? 0, speed: opts.kmPerSec ?? 60, dist: opts.dist ?? 28, onKm: opts.onKm, headingS: this.getView().heading, resolve }
       this.controls.enabled = false
       this.poke(1e9)
     })
+  }
+  /** Jump the chase flight to a distance along its path. */
+  setFlyKm(km: number) {
+    if (this.follow) this.follow.km = km
+  }
+  get flyKm() {
+    return this.follow?.km ?? null
   }
   setFlySpeed(kmPerSec: number) {
     if (this.follow) this.follow.speed = kmPerSec

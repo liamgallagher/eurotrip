@@ -38,7 +38,7 @@ function dayPoints(e: DayEval, legs: Record<string, Leg>, heightAt: (lon: number
 
 export function SceneSync({ pl, trip, legs, stats, options, optionLegs, driven, drivenVersion }: Props) {
   const dio = useDio()
-  const ui = useApp(useShallow((s) => ({ panel: s.panel, day: s.day, cand: s.cand, focusCand: s.focusCand, hoverOption: s.hoverOption, ribbon: s.ribbon, sunMin: s.sunMin, settings: s.plan.settings, startDate: s.plan.startDate })))
+  const ui = useApp(useShallow((s) => ({ panel: s.panel, day: s.day, cand: s.cand, focusCand: s.focusCand, hoverOption: s.hoverOption, ribbon: s.ribbon, sunMin: s.sunMin, sunKick: s.sunKick, settings: s.plan.settings, startDate: s.plan.startDate })))
   const sugg = useSuggestions(pl)
   const heightAt = (lon: number, lat: number) => dio?.heightAt(lon, lat) ?? 0
 
@@ -178,7 +178,7 @@ export function SceneSync({ pl, trip, legs, stats, options, optionLegs, driven, 
     }
     dio.ready.then(step)
     return () => cancelAnimationFrame(raf)
-  }, [dio, sunTarget, ui.sunMin])
+  }, [dio, sunTarget, ui.sunMin, ui.sunKick])
 
   // ——— camera
   const introDone = useRef(false)

@@ -49,6 +49,20 @@ test('a day card shows the drive, the breaks and tonight’s stop; a stop can be
   await expect(page.locator('.daycard h2')).toContainText(name.split(' ')[0])
 })
 
+test('fly the whole trip, day by day', async ({ page }) => {
+  await chooseFirstTrip(page)
+  const go = page.getByRole('button', { name: 'Fly the whole trip' })
+  await expect(go).toBeEnabled({ timeout: 60_000 })
+  await go.click()
+  const cap = page.locator('.tripfly__cap')
+  await expect(cap).toContainText('Day 1', { timeout: 20_000 })
+  await page.getByRole('button', { name: 'Next day' }).click()
+  await expect(cap).not.toContainText('Day 1 ·', { timeout: 20_000 })
+  await page.getByRole('radio', { name: '4×' }).click()
+  await page.locator('.tripfly').getByRole('button', { name: 'Stop', exact: true }).click()
+  await expect(page.getByRole('button', { name: 'Fly the whole trip' })).toBeVisible()
+})
+
 test('Liam and Tatiana each have their own hearts', async ({ page, isMobile }) => {
   await chooseFirstTrip(page)
   if (isMobile) await page.getByRole('button', { name: 'Menu' }).click()

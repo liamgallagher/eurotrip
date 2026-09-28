@@ -28,6 +28,10 @@ export interface UIState {
   hoverOption: string | null
   hoverHighlight: string | null
   toast: string | null
+  /** bumped to make the sun return to the selected day after a flight */
+  sunKick: number
+  /** whole-trip flight in progress */
+  tripFlight: boolean
 }
 
 function clean(s: Partial<PlannerState>): PlannerState {
@@ -114,6 +118,8 @@ export const useApp = create<Store>((set, get) => ({
   hoverOption: null,
   hoverHighlight: null,
   toast: null,
+  sunKick: 0,
+  tripFlight: false,
   setPlan: (p) => set((s) => ({ plan: typeof p === 'function' ? p(s.plan) : p, fresh: false })),
   ui: (patch) => set(patch),
   toggleHeart: (id, who) => {

@@ -7,6 +7,7 @@ import { Stage } from './ui/Stage'
 import { SceneSync } from './ui/SceneSync'
 import { Pins } from './ui/Pins'
 import { Lettering } from './ui/Lettering'
+import { TripFlight } from './ui/TripFlight'
 import { DayStrip, SunDial, TopBar } from './ui/Chrome'
 import { Options, useTripOptions } from './ui/Options'
 import { DayCard } from './ui/DayCard'
@@ -37,7 +38,7 @@ export default function App() {
   const trip = useTripPlan(pl)
   const { legs } = useLegs(trip)
   const stats = useDayStats(trip, legs)
-  const ui = useApp(useShallow((s) => ({ panel: s.panel, view: s.view, toast: s.toast, ribbon: s.ribbon, day: s.day })))
+  const ui = useApp(useShallow((s) => ({ panel: s.panel, view: s.view, toast: s.toast, ribbon: s.ribbon, day: s.day, flying: s.tripFlight })))
   const set = useApp((s) => s.ui)
   const journal = useJournal()
   const options = useTripOptions(pl, ui.panel === 'options')
@@ -105,7 +106,7 @@ export default function App() {
   })()
 
   return (
-    <div className={`app view-${ui.view} ${ui.panel ? 'has-panel' : ''} panel-${ui.panel ?? 'none'}`}>
+    <div className={`app view-${ui.view} ${ui.panel ? 'has-panel' : ''} panel-${ui.panel ?? 'none'} ${ui.flying ? 'is-flying' : ''}`}>
       {ui.view === '3d' && (
         <Stage>
           <SceneSync pl={pl} trip={trip} legs={legs} stats={stats?.days ?? null} options={options} optionLegs={optionLegs} driven={journal.driven} drivenVersion={journal.version} />
@@ -135,6 +136,7 @@ export default function App() {
       )}
       {ui.view === '3d' && (
         <div className="hud">
+          {trip && <TripFlight trip={trip} legs={legs} />}
           <SunDial trip={trip} />
           <div className="seg seg--small ribbonmode" role="radiogroup" aria-label="Colour the route by">
             {(['Route', 'Battery', 'Climb'] as const).map((l, i) => (
